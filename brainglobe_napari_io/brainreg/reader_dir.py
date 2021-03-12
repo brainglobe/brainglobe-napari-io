@@ -9,7 +9,7 @@ from .utils import is_brainreg_dir, load_additional_downsampled_channels
 
 
 # Assume this is more used
-@napari_hook_implementation(tryfirst=True, specname="napari_get_reader")
+@napari_hook_implementation(specname="napari_get_reader")
 def brainreg_read_dir(path):
     """A basic implementation of the napari_get_reader hook specification.
 
