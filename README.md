@@ -25,7 +25,7 @@ install `brainglobe-napari-io` via [pip]:
 
 ### brainreg
 #### Sample space
-Open napari and drag your [brainreg](https://github.com/brainglobe/brainreg) output directory (the one with the log file) onto the napari window.
+Drag your [brainreg](https://github.com/brainglobe/brainreg) output directory (the one with the log file) onto the napari window.
     
 Various images should then open, including:
 * `Registered image` - the image used for registration, downsampled to atlas resolution
