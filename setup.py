@@ -58,6 +58,9 @@ setup(
         "License :: OSI Approved :: BSD License",
     ],
     entry_points={
-        "napari.plugin": ["brainglobe-io = brainglobe_napari_io.plugins"]
+        "napari.plugin": [
+            "brainglobe-io = brainglobe_napari_io.plugins",
+            "brainreg-standard = brainglobe_napari_io.brainreg.reader_dir_standard_space",
+        ]
     },
 )
