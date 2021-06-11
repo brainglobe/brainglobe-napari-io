@@ -7,24 +7,20 @@ from imlib.cells.cells import Cell
 from .utils import convert_layer_to_cells
 
 
-@napari_hook_implementation(specname="napari_get_writer")
-def cellfinder_write_xml(path: str):
+@napari_hook_implementation(specname="napari_write_points")
+def cellfinder_write_xml(path, data, meta):
     if isinstance(path, str) and path.endswith(".xml"):
-        return write_points_to_xml
+        return write_points_to_xml(path, data, meta)
     else:
         return None
 
 
-def write_points_to_xml(
-    path: str, layer_data: List[Tuple[Any, Dict, str]]
-) -> str:
+def write_points_to_xml(path, data, metadata):
     cells_to_save = []
-    for layer in layer_data:
-        data, state, type = layer
-        if state["metadata"]["point_type"] == Cell.CELL:
-            cells_to_save.extend(convert_layer_to_cells(data))
-        elif state["metadata"]["point_type"] == Cell.UNKNOWN:
-            cells_to_save.extend(convert_layer_to_cells(data, cells=False))
+    if metadata["metadata"]["point_type"] == Cell.CELL:
+        cells_to_save.extend(convert_layer_to_cells(data))
+    elif metadata["metadata"]["point_type"] == Cell.UNKNOWN:
+        cells_to_save.extend(convert_layer_to_cells(data, cells=False))
 
     if cells_to_save:
         save_cells(cells_to_save, path)
