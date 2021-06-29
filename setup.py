@@ -45,6 +45,7 @@ setup(
         "Bug Tracker": "https://github.com/brainglobe/brainglobe-napari-io/issues",
         "Documentation": "https://docs.brainglobe.info",
         "User Support": "https://forum.image.sc/tag/brainglobe",
+        "Twitter": "https://twitter.com/brain_globe",
     },
     classifiers=[
         "Development Status :: 4 - Beta",
