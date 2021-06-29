@@ -20,7 +20,7 @@ setup(
     version="0.1.1",
     author="Adam Tyson",
     author_email="code@adamltyson.com",
-    license="GPL-3.0",
+    license="BSD-3-Clause",
     description="Read and write files from the BrainGlobe neuroanatomy suite",
     long_description=long_description,
     long_description_content_type="text/markdown",
