@@ -44,6 +44,7 @@ setup(
         "Source Code": "https://github.com/brainglobe/brainglobe-napari-io",
         "Bug Tracker": "https://github.com/brainglobe/brainglobe-napari-io/issues",
         "Documentation": "https://docs.brainglobe.info",
+        "User Support": "https://forum.image.sc/tag/brainglobe",
     },
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -57,7 +58,6 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
-        "License :: OSI Approved :: BSD License",
     ],
     entry_points={
         "napari.plugin": [
