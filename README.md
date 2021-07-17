@@ -1,4 +1,4 @@
-# napari-cellfinder
+# napari-brainglobe-io
 
 [![License](https://img.shields.io/pypi/l/brainglobe-napari-io.svg?color=green)](https://github.com/napari/brainglobe-napari-io/raw/master/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/brainglobe-napari-io.svg?color=green)](https://pypi.org/project/brainglobe-napari-io)
