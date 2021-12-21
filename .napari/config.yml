@@ -1,0 +1,13 @@
+
+# Add labels the plugin from the EDAM Bioimaging ontology
+labels:
+  ontology: EDAM-BIOIMAGING:alpha06
+  terms:
+  - Image visualisation
+  - Overlay
+  - Microscopy
+  - Image analysis
+  - Slice rendering
+  - Image classification
+  - 3D image
+  - Image registration
