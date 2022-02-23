@@ -1,5 +1,3 @@
-from napari_plugin_engine import napari_hook_implementation
-
 from typing import List, Tuple, Dict, Any
 from imlib.IO.cells import save_cells
 from imlib.cells.cells import Cell
@@ -7,7 +5,6 @@ from imlib.cells.cells import Cell
 from .utils import convert_layer_to_cells
 
 
-@napari_hook_implementation(specname="napari_get_writer")
 def cellfinder_write_multiple_xml(path: str, layer_types: list):
     if (
         isinstance(path, str)

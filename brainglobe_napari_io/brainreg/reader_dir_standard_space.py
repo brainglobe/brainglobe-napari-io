@@ -2,13 +2,11 @@ import os
 import json
 import tifffile
 from pathlib import Path
-from napari_plugin_engine import napari_hook_implementation
 from bg_atlasapi.bg_atlas import BrainGlobeAtlas
 
 from .utils import is_brainreg_dir, load_additional_downsampled_channels
 
 
-@napari_hook_implementation(specname="napari_get_reader", trylast=True)
 def brainreg_read_dir_standard_space(path):
     """A basic implementation of the napari_get_reader hook specification.
 
