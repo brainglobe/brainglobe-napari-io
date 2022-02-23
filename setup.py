@@ -61,9 +61,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     entry_points={
-        "napari.plugin": [
-            "brainglobe-io = brainglobe_napari_io.plugins",
-            "brainreg-standard = brainglobe_napari_io.brainreg.reader_dir_standard_space",
-        ]
+        "napari.manifest": [
+            "brainglobe-napari-io = brainglobe_napari_io:napari.yaml",
+        ],
     },
+    package_data={"brainglobe_napari_io": ["napari.yaml"]},
 )
