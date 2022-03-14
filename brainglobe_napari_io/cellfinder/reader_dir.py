@@ -14,7 +14,6 @@ import sys
 import json
 import bg_space as bgs
 from pathlib import Path
-from napari_plugin_engine import napari_hook_implementation
 
 from ..brainreg.reader_dir import reader_function as brainreg_reader
 
@@ -45,7 +44,6 @@ def is_cellfinder_dir(path):
     return False
 
 
-@napari_hook_implementation(specname="napari_get_reader")
 def cellfinder_read_dir(path):
     """A basic implementation of the napari_get_reader hook specification.
 

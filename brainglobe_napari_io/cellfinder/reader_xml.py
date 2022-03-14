@@ -4,10 +4,7 @@ from xml.etree import ElementTree
 
 from .utils import load_cells
 
-from napari_plugin_engine import napari_hook_implementation
 
-
-@napari_hook_implementation(specname="napari_get_reader")
 def cellfinder_read_xml(path):
     """A basic implementation of the napari_get_reader hook specification.
 

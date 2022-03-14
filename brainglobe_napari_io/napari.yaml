@@ -1,0 +1,52 @@
+name: brainglobe-napari-io
+schema_version: 0.1.0
+contributions:
+  commands:
+  - id: brainglobe-napari-io.brainreg_read_dir
+    title: Brainreg Read Directory
+    python_name: brainglobe_napari_io.brainreg.reader_dir:brainreg_read_dir
+  - id: brainglobe-napari-io.brainreg_read_dir_standard_space
+    title: Brainreg Read Directory Standard Space
+    python_name: brainglobe_napari_io.brainreg.reader_dir_standard_space:brainreg_read_dir_standard_space
+  - id: brainglobe-napari-io.cellfinder_read_dir
+    title: Cellfinder Read Directory
+    python_name: brainglobe_napari_io.cellfinder.reader_dir:cellfinder_read_dir
+  - id: brainglobe-napari-io.cellfinder_read_xml
+    title: Cellfinder Read XML
+    python_name: brainglobe_napari_io.cellfinder.reader_xml:cellfinder_read_xml
+  - id: brainglobe-napari-io.cellfinder_write_xml
+    title: Write Points
+    python_name: brainglobe_napari_io.cellfinder.writer_xml:cellfinder_write_xml
+  - id: brainglobe-napari-io.cellfinder_write_multiple_xml
+    title: Write Multiple Points
+    python_name: brainglobe_napari_io.cellfinder.writer_multiple_xml:cellfinder_write_multiple_xml
+  readers:
+  - command: brainglobe-napari-io.brainreg_read_dir
+    filename_patterns:
+    - '*.tiff'
+    accepts_directories: true
+  - command: brainglobe-napari-io.brainreg_read_dir_standard_space
+    filename_patterns:
+      - '*.tiff'
+    accepts_directories: true
+  - command: brainglobe-napari-io.cellfinder_read_dir
+    filename_patterns:
+    - '*.tif'
+    accepts_directories: true
+  - command: brainglobe-napari-io.cellfinder_read_xml
+    filename_patterns:
+    - '*.xml'
+    accepts_directories: false
+  writers:
+  - command: brainglobe-napari-io.cellfinder_write_xml
+    layer_types:
+    - points
+    filename_extensions:
+    - .xml
+    display_name: points
+  - command: brainglobe-napari-io.cellfinder_write_multiple_xml
+    layer_types:
+    - "points+"
+    filename_extensions:
+      - .xml
+    display_name: multiple_points
