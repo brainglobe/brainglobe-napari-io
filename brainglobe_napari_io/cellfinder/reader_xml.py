@@ -24,7 +24,8 @@ def cellfinder_read_xml(path):
 
 
 def is_cellfinder_xml(path):
-    if Path(path).suffix == ".xml":
+    path = Path(path).resolve()
+    if path.suffix == ".xml":
         try:
             with open(path, "r") as xml_file:
                 root = ElementTree.parse(xml_file).getroot()
@@ -61,6 +62,7 @@ def xml_reader(path, point_size=15, opacity=0.6, symbol="ring"):
         Both "meta", and "layer_type" are optional. napari will default to
         layer_type=="image" if not provided
     """
+    path = Path(path).resolve()
     print("Loading cellfinder XML file")
 
     layers = []
