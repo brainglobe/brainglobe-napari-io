@@ -1,25 +1,37 @@
 from typing import List, Tuple, Dict, Any
+
 from imlib.IO.cells import save_cells
 from imlib.cells.cells import Cell
+from napari.types import FullLayerData
+from napari.utils.notifications import show_info
 
 from .utils import convert_layer_to_cells
 
 
-def cellfinder_write_xml(path, data, meta):
-    if isinstance(path, str) and path.endswith(".xml"):
-        return write_points_to_xml(path, data, meta)
-    else:
-        return None
+def write_points_to_xml(path: str, data: Any, attributes: dict) -> List[str]:
+    return write_multiple_points_to_xml(path, [(data, attributes, "points")])
 
 
-def write_points_to_xml(path, data, metadata):
+def write_multiple_points_to_xml(
+    path: str, layer_data: List[FullLayerData]
+) -> List[str]:
     cells_to_save = []
-    if metadata["metadata"]["point_type"] == Cell.CELL:
-        cells_to_save.extend(convert_layer_to_cells(data))
-    elif metadata["metadata"]["point_type"] == Cell.UNKNOWN:
-        cells_to_save.extend(convert_layer_to_cells(data, cells=False))
+    for layer in layer_data:
+        data, attributes, type = layer
+        if "point_type" not in attributes["metadata"]:
+            # Not a points layer loaded by brainglobe_napari_io
+            name = attributes["name"]
+            show_info(
+                f'Did not find point type in metadata for "{name}" layer, '
+                "not saving to file."
+            )
+        elif attributes["metadata"]["point_type"] == Cell.CELL:
+            cells_to_save.extend(convert_layer_to_cells(data))
+        elif attributes["metadata"]["point_type"] == Cell.UNKNOWN:
+            cells_to_save.extend(convert_layer_to_cells(data, cells=False))
 
     if cells_to_save:
         save_cells(cells_to_save, path)
-
-    return path
+        return [path]
+    else:
+        return []
