@@ -8,10 +8,6 @@ from napari.utils.notifications import show_info
 from .utils import convert_layer_to_cells
 
 
-def write_points_to_xml(path: str, data: Any, attributes: dict) -> List[str]:
-    return write_multiple_points_to_xml(path, [(data, attributes, "points")])
-
-
 def write_multiple_points_to_xml(
     path: str, layer_data: List[FullLayerData]
 ) -> List[str]:
