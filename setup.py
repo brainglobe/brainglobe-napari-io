@@ -17,7 +17,7 @@ requirements = [
 
 setup(
     name="brainglobe-napari-io",
-    version="0.1.5-rc0",
+    version="0.1.5",
     author="Adam Tyson",
     author_email="code@adamltyson.com",
     license="BSD-3-Clause",
