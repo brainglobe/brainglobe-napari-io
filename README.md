@@ -77,7 +77,7 @@ coordinate space of your raw data).
 ## Contributing
 
 Contributions are very welcome. Tests can be run with [tox], please ensure
-the coverage at least stays the same before you submit a pull request.
+the coverage at least stays the same before you submit a pull request. Please also see the [contributing guide](https://github.com/brainglobe/.github/blob/main/CONTRIBUTING.md).
 
 ## License
 
