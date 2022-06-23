@@ -1,7 +1,8 @@
-import os
 import json
-import tifffile
+import os
 from pathlib import Path
+
+import tifffile
 from bg_atlasapi.bg_atlas import BrainGlobeAtlas
 
 from .utils import is_brainreg_dir, load_additional_downsampled_channels
