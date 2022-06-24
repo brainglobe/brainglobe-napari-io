@@ -13,9 +13,9 @@ Visualise cellfinder and brainreg results with napari
 
 
 ## Installation
-This package is likely already installed 
-(e.g. with cellfinder, brainreg or another napari plugin), but if you want to 
-install it again, either use the napari plugin install GUI or you can 
+This package is likely already installed
+(e.g. with cellfinder, brainreg or another napari plugin), but if you want to
+install it again, either use the napari plugin install GUI or you can
 install `brainglobe-napari-io` via [pip]:
 
     pip install brainglobe-napari-io
@@ -26,7 +26,7 @@ install `brainglobe-napari-io` via [pip]:
 ### brainreg
 #### Sample space
 Drag your [brainreg](https://github.com/brainglobe/brainreg) output directory (the one with the log file) onto the napari window.
-    
+
 Various images should then open, including:
 * `Registered image` - the image used for registration, downsampled to atlas resolution
 * `atlas_name` - e.g. `allen_mouse_25um` the atlas labels, warped to your sample brain
@@ -42,8 +42,8 @@ _N.B. If you use a high resolution atlas (such as `allen_mouse_10um`), then the 
 
 
 #### Atlas space
-`napari-brainreg` also comes with an additional plugin, for visualising your data 
-in atlas space. 
+`napari-brainreg` also comes with an additional plugin, for visualising your data
+in atlas space.
 
 This is typically only used in other software, but you can enable it yourself:
 * Open napari
@@ -61,9 +61,9 @@ This is typically only used in other software, but you can enable it yourself:
 * Load your raw data (drag and drop the data directories into napari, one at a time)
 * Drag and drop your cellfinder output directory into napari.
 
-The plugin will then load your detected cells (in yellow) and the rejected cell 
-candidates (in blue). If you carried out registration, then these results will be 
-overlaid (similarly to the loading brainreg data, but transformed to the 
+The plugin will then load your detected cells (in yellow) and the rejected cell
+candidates (in blue). If you carried out registration, then these results will be
+overlaid (similarly to the loading brainreg data, but transformed to the
 coordinate space of your raw data).
 
 ![load_data](https://raw.githubusercontent.com/brainglobe/brainglobe-napari-io/master/resources/load_data.gif)

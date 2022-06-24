@@ -1,7 +1,7 @@
-from typing import List, Tuple, Dict, Any
+from typing import Any, Dict, List, Tuple
 
-from imlib.IO.cells import save_cells
 from imlib.cells.cells import Cell
+from imlib.IO.cells import save_cells
 from napari.types import FullLayerData
 from napari.utils.notifications import show_info
 

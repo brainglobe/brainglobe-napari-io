@@ -1,7 +1,6 @@
 [tool.black]
-target-version = ['py36', 'py37', 'py38']
+target-version = ['py36', 'py37', 'py38', 'py39', 'py310']
 skip-string-normalization = false
-line-length = 79
 exclude = '''
 (
   /(
@@ -19,3 +18,7 @@ exclude = '''
   )/
 )
 '''
+
+
+[tool.isort]
+profile = "black"

@@ -9,14 +9,14 @@ see: https://napari.org/docs/plugins/hook_specifications.html
 Replace code below accordingly.  For complete documentation see:
 https://napari.org/docs/plugins/for_plugin_developers.html
 """
+import json
 import os
 import sys
-import json
-import bg_space as bgs
 from pathlib import Path
 
-from ..brainreg.reader_dir import reader_function as brainreg_reader
+import bg_space as bgs
 
+from ..brainreg.reader_dir import reader_function as brainreg_reader
 from .utils import load_cells
 
 
@@ -110,16 +110,12 @@ def reader_function(path, point_size=15, opacity=0.6, symbol="ring"):
             )
 
     else:
-        layers = load_cells_from_file(
-            path, layers, point_size, opacity, symbol
-        )
+        layers = load_cells_from_file(path, layers, point_size, opacity, symbol)
 
     return layers
 
 
-def load_cells_from_file(
-    path, layers, point_size, opacity, symbol, channel=None
-):
+def load_cells_from_file(path, layers, point_size, opacity, symbol, channel=None):
     classified_cells_path = path / "points" / "cell_classification.xml"
     layers = load_cells(
         layers,
@@ -139,9 +135,7 @@ def load_registration(layers, registration_directory, metadata):
     registration_layers = remove_downsampled_images(registration_layers)
     atlas = get_atlas(registration_layers)
 
-    registration_layers = scale_reorient_layers(
-        registration_layers, atlas, metadata
-    )
+    registration_layers = scale_reorient_layers(registration_layers, atlas, metadata)
     layers.extend(registration_layers)
     return layers
 
@@ -181,13 +175,9 @@ def reorient_registration_layers(layers, atlas, metadata):
     return new_layers
 
 
-def reorient_registration_layer(
-    layer, atlas_orientation, raw_data_orientation
-):
+def reorient_registration_layer(layer, atlas_orientation, raw_data_orientation):
     layer = list(layer)
-    layer[0] = bgs.map_stack_to(
-        atlas_orientation, raw_data_orientation, layer[0]
-    )
+    layer[0] = bgs.map_stack_to(atlas_orientation, raw_data_orientation, layer[0])
     layer = tuple(layer)
     return layer
 

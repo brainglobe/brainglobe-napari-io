@@ -15,8 +15,8 @@ def test_reader_xml():
     assert reader_xml.cellfinder_read_xml(str(xml_file.resolve())) is not None
     layers = reader_xml.xml_reader(xml_file)
 
-    for l in layers:
-        assert len(l) == 3
-        assert isinstance(l[0], np.ndarray)
-        assert isinstance(l[1], dict)
-        assert isinstance(l[2], str)
+    for layer in layers:
+        assert len(layer) == 3
+        assert isinstance(layer[0], np.ndarray)
+        assert isinstance(layer[1], dict)
+        assert isinstance(layer[2], str)
