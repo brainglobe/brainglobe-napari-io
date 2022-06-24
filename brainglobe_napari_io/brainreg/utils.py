@@ -1,21 +1,14 @@
 import os
+from pathlib import Path
+from typing import List
 
 import tifffile
+from napari.types import LayerDataTuple
 
 
-def is_brainreg_dir(path):
-    """Determines whether a path is to a brainreg output directory
-
-    Parameters
-    ----------
-    path : str
-        Path to file.
-
-    Returns
-    -------
-    function or None
-        If the path is a recognized format, return a function that accepts the
-        same path or list of paths, and returns a list of layer data tuples.
+def is_brainreg_dir(path: os.PathLike) -> bool:
+    """
+    Determines whether a path is to a brainreg output directory.
     """
     path = os.path.abspath(path)
     if os.path.isdir(path):
@@ -28,12 +21,12 @@ def is_brainreg_dir(path):
 
 
 def load_additional_downsampled_channels(
-    path,
-    layers,
-    extension=".tiff",
-    search_string="downsampled_",
-    exlusion_string="downsampled_standard",
-):
+    path: Path,
+    layers: List[LayerDataTuple],
+    extension: str = ".tiff",
+    search_string: str = "downsampled_",
+    exlusion_string: str = "downsampled_standard",
+) -> List[LayerDataTuple]:
 
     # Get additional downsampled channels, but not main one, and not those
     # in standard space

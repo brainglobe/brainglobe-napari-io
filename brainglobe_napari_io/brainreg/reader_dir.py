@@ -1,15 +1,19 @@
 import json
 import os
 from pathlib import Path
+from typing import Callable, List, Optional, Union
 
 import tifffile
 from bg_atlasapi.bg_atlas import BrainGlobeAtlas
+from napari.types import LayerDataTuple
 
 from .utils import is_brainreg_dir, load_additional_downsampled_channels
 
+PathOrPaths = Union[List[os.PathLike], os.PathLike]
+
 
 # Assume this is more used
-def brainreg_read_dir(path):
+def brainreg_read_dir(path: PathOrPaths) -> Optional[Callable]:
     """A basic implementation of the napari_get_reader hook specification.
 
     Parameters
@@ -26,11 +30,12 @@ def brainreg_read_dir(path):
 
     if isinstance(path, str) and is_brainreg_dir(path):
         return reader_function
+    else:
+        return None
 
 
-def reader_function(path):
-    """Take a path or list of paths and return a list of LayerData tuples.
-
+def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
+    """
     Readers are expected to return data as a list of tuples, where each tuple
     is (data, [add_kwargs, [layer_type]]), "add_kwargs" and "layer_type" are
     both optional.
@@ -59,7 +64,7 @@ def reader_function(path):
     atlas = BrainGlobeAtlas(metadata["atlas"])
     metadata["atlas_class"] = atlas
 
-    layers = []
+    layers: List[LayerDataTuple] = []
     layers = load_additional_downsampled_channels(path, layers)
 
     layers.append(
