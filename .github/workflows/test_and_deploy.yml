@@ -9,7 +9,7 @@ jobs:
   linting:
       runs-on: ubuntu-latest
       steps:
-        - uses: brainglobe/actions/lint@v1
+        - uses: neuroinformatics-unit/actions/lint@v1
   test:
     name: ${{ matrix.platform }} py${{ matrix.python-version }}
     runs-on: ${{ matrix.platform }}
@@ -31,7 +31,7 @@ jobs:
       # these libraries enable testing on Qt on linux
       - uses: tlambert03/setup-qt-libs@v1
       # Run tests
-      - uses: brainglobe/actions/test@main
+      - uses: neuroinformatics-unit/actions/test@main
         with:
           python-version: ${{ matrix.python-version }}
 
