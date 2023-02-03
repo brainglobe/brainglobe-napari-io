@@ -14,7 +14,7 @@ jobs:
     name: ${{ matrix.platform }} py${{ matrix.python-version }}
     runs-on: ${{ matrix.platform }}
     strategy:
-    fail-fast: false
+      fail-fast: false
       matrix:
         # Run across a mixture of Python versions and operating systems
         include:
