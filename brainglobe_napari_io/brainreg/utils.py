@@ -27,7 +27,6 @@ def load_additional_downsampled_channels(
     search_string: str = "downsampled_",
     exlusion_string: str = "downsampled_standard",
 ) -> List[LayerDataTuple]:
-
     # Get additional downsampled channels, but not main one, and not those
     # in standard space
 
@@ -37,7 +36,6 @@ def load_additional_downsampled_channels(
             and file.name.startswith(search_string)
             and not file.name.startswith(exlusion_string)
         ):
-
             print(
                 f"Found additional downsampled image: {file.name}, " f"adding to viewer"
             )
