@@ -1,7 +1,5 @@
 import pathlib
 
-import numpy as np
-
 from brainglobe_napari_io.cellfinder import reader_xml, writer_xml
 
 test_data_dir = pathlib.Path(__file__) / ".." / "data"

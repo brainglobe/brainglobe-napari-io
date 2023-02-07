@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import List, Tuple
 
 import numpy as np
 import pandas as pd
@@ -10,7 +10,9 @@ from napari.types import LayerDataTuple
 
 
 def cells_df_as_np(
-    cells_df: pd.DataFrame, new_order: List[int] = [2, 1, 0], type_column: str = "type"
+    cells_df: pd.DataFrame,
+    new_order: List[int] = [2, 1, 0],
+    type_column: str = "type",
 ) -> np.ndarray:
     cells_df = cells_df.drop(columns=[type_column])
     cells = cells_df[cells_df.columns[new_order]]

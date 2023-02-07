@@ -37,9 +37,12 @@ def load_additional_downsampled_channels(
             and not file.name.startswith(exlusion_string)
         ):
             print(
-                f"Found additional downsampled image: {file.name}, " f"adding to viewer"
+                f"Found additional downsampled image: {file.name}, "
+                f"adding to viewer"
             )
-            name = file.name.strip(search_string).strip(extension) + (" (downsampled)")
+            name = file.name.strip(search_string).strip(extension) + (
+                " (downsampled)"
+            )
             layers.append(
                 (
                     tifffile.imread(file),
