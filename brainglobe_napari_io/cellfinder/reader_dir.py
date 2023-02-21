@@ -11,7 +11,6 @@ https://napari.org/docs/plugins/for_plugin_developers.html
 """
 import json
 import os
-import sys
 from pathlib import Path
 from typing import Callable, List, Optional, Tuple, Union
 
@@ -59,7 +58,10 @@ def cellfinder_read_dir(path: PathOrPaths) -> Optional[Callable]:
 
 
 def reader_function(
-    path: os.PathLike, point_size: int = 15, opacity: float = 0.6, symbol: str = "ring"
+    path: os.PathLike,
+    point_size: int = 15,
+    opacity: float = 0.6,
+    symbol: str = "ring",
 ) -> List[LayerDataTuple]:
     """Take a path or list of paths and return a list of LayerData tuples.
 
@@ -108,7 +110,9 @@ def reader_function(
             )
 
     else:
-        layers = load_cells_from_file(path, layers, point_size, opacity, symbol)
+        layers = load_cells_from_file(
+            path, layers, point_size, opacity, symbol
+        )
 
     return layers
 
@@ -142,7 +146,9 @@ def load_registration(
     registration_layers = remove_downsampled_images(registration_layers)
     atlas = get_atlas(registration_layers)
 
-    registration_layers = scale_reorient_layers(registration_layers, atlas, metadata)
+    registration_layers = scale_reorient_layers(
+        registration_layers, atlas, metadata
+    )
     layers.extend(registration_layers)
     return layers
 
@@ -154,7 +160,9 @@ def get_atlas(layers: List[LayerDataTuple]):
             return atlas
 
 
-def remove_downsampled_images(layers: List[LayerDataTuple]) -> List[LayerDataTuple]:
+def remove_downsampled_images(
+    layers: List[LayerDataTuple],
+) -> List[LayerDataTuple]:
     # assumes the atlas annotations and boundaries are the last two layers
     layers = list(layers)
     return layers[-2:]
@@ -188,7 +196,9 @@ def reorient_registration_layer(
     layer: LayerDataTuple, atlas_orientation, raw_data_orientation
 ) -> LayerDataTuple:
     layer = list(layer)
-    layer[0] = bgs.map_stack_to(atlas_orientation, raw_data_orientation, layer[0])
+    layer[0] = bgs.map_stack_to(
+        atlas_orientation, raw_data_orientation, layer[0]
+    )
     layer = tuple(layer)
     return layer
 
@@ -204,7 +214,9 @@ def scale_registration_layers(
     return new_layers
 
 
-def get_scale(atlas, metadata, scaling_rounding_decimals: int = 5) -> Tuple[int, ...]:
+def get_scale(
+    atlas, metadata, scaling_rounding_decimals: int = 5
+) -> Tuple[int, ...]:
     source_space = bgs.AnatomicalSpace(metadata["orientation"])
     scaling = []
     for idx, axis in enumerate(atlas.space.axes_order):

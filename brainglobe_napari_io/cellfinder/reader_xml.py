@@ -32,7 +32,7 @@ def is_cellfinder_xml(path):
                     return True
                 else:
                     return False
-        except:
+        except Exception:
             return False
     else:
         return False

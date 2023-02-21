@@ -43,7 +43,9 @@ setup(
     url="https://brainglobe.info",
     project_urls={
         "Source Code": "https://github.com/brainglobe/brainglobe-napari-io",
-        "Bug Tracker": "https://github.com/brainglobe/brainglobe-napari-io/issues",
+        "Bug Tracker": (
+            "https://github.com/brainglobe/brainglobe-napari-io/issues"
+        ),
         "Documentation": "https://docs.brainglobe.info",
         "User Support": "https://forum.image.sc/tag/brainglobe",
         "Twitter": "https://twitter.com/brain_globe",
