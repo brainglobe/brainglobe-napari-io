@@ -1,5 +1,76 @@
+[project]
+name = "brainglobe-napari-io"
+description = "Read and write files from the BrainGlobe neuroanatomy suite"
+readme = "README.md"
+authors = [
+    {name = "Adam Tyson", email = "code@adamltyson.com"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: napari",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "bg-atlasapi",
+    "bg_space",
+    "imlib",
+    "napari",
+    "napari-ndtiffs",
+    "napari-plugin-engine >= 0.1.4",
+    "tifffile>=2020.8.13",
+]
+license = {text = "BSD-3-Clause"}
+dynamic = ['version']
+
+[project.urls]
+Homepage = "https://brainglobe.info"
+"Source Code" = "https://github.com/brainglobe/brainglobe-napari-io"
+"Bug Tracker" = "https://github.com/brainglobe/brainglobe-napari-io/issues"
+Documentation = "https://docs.brainglobe.info"
+"User Support" = "https://forum.image.sc/tag/brainglobe"
+Twitter = "https://twitter.com/brain_globe"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "gitpython",
+    "pre-commit",
+    "pytest",
+    "pytest-cov",
+]
+
+[project.entry-points."napari.manifest"]
+brainglobe-napari-io = "brainglobe_napari_io:napari.yaml"
+
+
+[build-system]
+requires = [
+    "setuptools>=45",
+    "wheel",
+    "setuptools_scm[toml]>=6.2",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["brainglobe_napari_io*"]
+
+[tool.setuptools_scm]
+
 [tool.black]
-target-version = ['py38', 'py39', 'py310']
+target-version = ['py38', 'py39', 'py310', 'py311']
 skip-string-normalization = false
 line-length = 79
 
