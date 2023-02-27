@@ -69,6 +69,11 @@ include = ["brainglobe_napari_io*"]
 
 [tool.setuptools_scm]
 
+[tool.pytest.ini_options]
+filterwarnings = [
+    "error",
+]
+
 [tool.black]
 target-version = ['py38', 'py39', 'py310', 'py311']
 skip-string-normalization = false
