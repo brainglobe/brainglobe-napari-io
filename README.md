@@ -75,7 +75,7 @@ coordinate space of your raw data).
 
 
 ## Contributing
-Please see the [developers guide](https://brainglobe.info/developers/index.html). 
+Please see the [developers guide](https://brainglobe.info/developers/index.html).
 
 ## License
 
