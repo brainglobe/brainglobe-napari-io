@@ -1,6 +1,6 @@
 # napari-brainglobe-io
 
-[![License](https://img.shields.io/pypi/l/brainglobe-napari-io.svg?color=green)](https://github.com/napari/brainglobe-napari-io/raw/master/LICENSE)
+[![License](https://img.shields.io/pypi/l/brainglobe-napari-io.svg?color=green)](https://github.com/brainglobe/brainglobe-napari-io/blob/main/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/brainglobe-napari-io.svg?color=green)](https://pypi.org/project/brainglobe-napari-io)
 [![Python Version](https://img.shields.io/pypi/pyversions/brainglobe-napari-io.svg?color=green)](https://python.org)
 [![tests](https://github.com/brainglobe/brainglobe-napari-io/workflows/tests/badge.svg)](https://github.com/brainglobe/brainglobe-napari-io/actions)
