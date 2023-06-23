@@ -1,7 +1,7 @@
 from typing import List
 
-from imlib.cells.cells import Cell
-from imlib.IO.cells import save_cells
+from brainglobe_utils.cells.cells import Cell
+from brainglobe_utils.IO.cells import save_cells
 from napari.types import FullLayerData
 from napari.utils.notifications import show_info
 

@@ -23,7 +23,7 @@ requires-python = ">=3.8"
 dependencies = [
     "bg-atlasapi",
     "bg_space",
-    "imlib",
+    "brainglobe-utils",
     "napari",
     "napari-ndtiffs",
     "napari-plugin-engine >= 0.1.4",

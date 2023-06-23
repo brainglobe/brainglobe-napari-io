@@ -4,8 +4,8 @@ from typing import List, Tuple
 
 import numpy as np
 import pandas as pd
-from imlib.cells.cells import Cell
-from imlib.IO.cells import cells_xml_to_df
+from brainglobe_utils.cells.cells import Cell
+from brainglobe_utils.IO.cells import cells_xml_to_df
 from napari.types import LayerDataTuple
 
 
