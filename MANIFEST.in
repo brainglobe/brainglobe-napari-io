@@ -7,5 +7,5 @@ exclude *.yml
 recursive-exclude brainglobe_napari_io *.xml
 recursive-exclude brainglobe_napari_io *.yaml
 
-prune .napari
+graft .napari
 prune resources
