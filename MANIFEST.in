@@ -1,11 +1,13 @@
 include LICENSE
 include README.md
 exclude tox.ini
-exclude *.yaml
+
+
 exclude *.yml
+exclude *.yaml
 
 recursive-exclude brainglobe_napari_io *.xml
-recursive-exclude brainglobe_napari_io *.yaml
+include brainglobe_napari_io/napari.yaml
 
-graft .napari
+prune .napari
 prune resources
