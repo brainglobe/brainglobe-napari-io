@@ -1,2 +1,8 @@
 include LICENSE
 include README.md
+
+exclude tox.ini
+recursive-exclude brainglobe_napari_io *.xml
+recursive-exclude brainglobe_napari_io *.yaml
+
+prune resources
