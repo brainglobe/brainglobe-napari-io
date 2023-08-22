@@ -2,9 +2,7 @@
 name = "brainglobe-napari-io"
 description = "Read and write files from the BrainGlobe neuroanatomy suite"
 readme = "README.md"
-authors = [
-    {name = "Adam Tyson", email = "code@adamltyson.com"},
-]
+authors = [{ name = "Adam Tyson", email = "code@adamltyson.com" }]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: napari",
@@ -25,11 +23,11 @@ dependencies = [
     "bg_space",
     "brainglobe-utils",
     "napari",
-    "napari-ndtiffs",
-    "napari-plugin-engine >= 0.1.4",
     "tifffile>=2020.8.13",
+    "numpy",
+    "pandas",
 ]
-license = {text = "BSD-3-Clause"}
+license = { text = "BSD-3-Clause" }
 dynamic = ['version']
 
 [project.urls]
@@ -41,24 +39,14 @@ Documentation = "https://docs.brainglobe.info"
 Twitter = "https://twitter.com/brain_globe"
 
 [project.optional-dependencies]
-dev = [
-    "black",
-    "gitpython",
-    "pre-commit",
-    "pytest",
-    "pytest-cov",
-]
+dev = ["black", "gitpython", "pre-commit", "pytest", "pytest-cov"]
 
 [project.entry-points."napari.manifest"]
 brainglobe-napari-io = "brainglobe_napari_io:napari.yaml"
 
 
 [build-system]
-requires = [
-    "setuptools>=45",
-    "wheel",
-    "setuptools_scm[toml]>=6.2",
-]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -70,9 +58,7 @@ include = ["brainglobe_napari_io*"]
 [tool.setuptools_scm]
 
 [tool.pytest.ini_options]
-filterwarnings = [
-    "error",
-]
+filterwarnings = ["error"]
 
 [tool.black]
 target-version = ['py38', 'py39', 'py310', 'py311']
@@ -81,6 +67,6 @@ line-length = 79
 
 [tool.ruff]
 line-length = 79
-exclude = ["__init__.py","build",".eggs"]
+exclude = ["__init__.py", "build", ".eggs"]
 select = ["I", "E", "F"]
 fix = true
