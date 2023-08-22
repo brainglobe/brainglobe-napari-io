@@ -39,7 +39,7 @@ Documentation = "https://docs.brainglobe.info"
 Twitter = "https://twitter.com/brain_globe"
 
 [project.optional-dependencies]
-dev = ["black", "gitpython", "pre-commit", "pytest", "pytest-cov"]
+dev = ["black", "pre-commit", "pytest", "pytest-cov"]
 
 [project.entry-points."napari.manifest"]
 brainglobe-napari-io = "brainglobe_napari_io:napari.yaml"
