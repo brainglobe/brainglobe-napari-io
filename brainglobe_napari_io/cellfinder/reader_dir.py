@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Callable, List, Optional, Tuple, Union
 
 import bg_space as bgs
-from napari.typing import LayerDataTuple
+from napari.types import LayerDataTuple
 
 from ..brainreg.reader_dir import reader_function as brainreg_reader
 from .utils import load_cells
