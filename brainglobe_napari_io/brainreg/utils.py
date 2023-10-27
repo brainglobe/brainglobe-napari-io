@@ -28,7 +28,7 @@ def load_additional_downsampled_channels(
     exlusion_string: str = "downsampled_standard",
 ) -> List[LayerDataTuple]:
     # Get additional downsampled channels, but not main one, and not those
-    # in standard space
+    # in atlas space
 
     for file in path.iterdir():
         if (
