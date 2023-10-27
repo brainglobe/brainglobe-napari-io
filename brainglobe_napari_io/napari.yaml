@@ -6,9 +6,9 @@ contributions:
     title: Brainreg Read Directory
     python_name: brainglobe_napari_io.brainreg.reader_dir:brainreg_read_dir
 
-  - id: brainglobe-napari-io.brainreg_read_dir_standard_space
-    title: Brainreg Read Directory Standard Space
-    python_name: brainglobe_napari_io.brainreg.reader_dir_standard_space:brainreg_read_dir_standard_space
+  - id: brainglobe-napari-io.brainreg_read_dir_atlas_space
+    title: Brainreg Read Directory Atlas Space
+    python_name: brainglobe_napari_io.brainreg.reader_dir_atlas_space:brainreg_read_dir_atlas_space
 
   - id: brainglobe-napari-io.cellfinder_read_dir
     title: Cellfinder Read Directory
@@ -29,7 +29,7 @@ contributions:
     - '*.tiff'
     accepts_directories: true
 
-  - command: brainglobe-napari-io.brainreg_read_dir_standard_space
+  - command: brainglobe-napari-io.brainreg_read_dir_atlas_space
     filename_patterns:
       - '*.tiff'
     accepts_directories: true

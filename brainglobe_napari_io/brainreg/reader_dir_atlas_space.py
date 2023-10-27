@@ -12,7 +12,7 @@ from .utils import is_brainreg_dir, load_additional_downsampled_channels
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 
 
-def brainreg_read_dir_standard_space(path: PathOrPaths) -> Optional[Callable]:
+def brainreg_read_dir_atlas_space(path: PathOrPaths) -> Optional[Callable]:
     """A basic implementation of the napari_get_reader hook specification.
 
     Parameters
@@ -69,7 +69,7 @@ def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
         path,
         layers,
         search_string="downsampled_standard",
-        exlusion_string="downsampled_standard.tiff",
+        exclusion_string="downsampled_standard.tiff",
     )
     layers.append(
         (

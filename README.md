@@ -49,7 +49,7 @@ This is typically only used in other software, but you can enable it yourself:
 * Open napari
 * Navigate to `Plugins` -> `Plugin Call Order`
 * In the `Plugin Sorter` window, select `napari_get_reader` from the `select hook...` dropdown box
-* Drag `brainreg_read_dir_standard_space` (the atlas space viewer plugin) above `brainreg_read_dir` (the normal plugin) to ensure that the atlas space plugin is used preferentially.
+* Drag `brainreg_read_dir_atlas_space` (the atlas space viewer plugin) above `brainreg_read_dir` (the normal plugin) to ensure that the atlas space plugin is used preferentially.
 
 
 ### cellfinder
