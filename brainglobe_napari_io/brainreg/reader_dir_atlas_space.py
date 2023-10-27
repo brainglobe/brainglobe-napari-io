@@ -69,7 +69,7 @@ def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
         path,
         layers,
         search_string="downsampled_standard",
-        exlusion_string="downsampled_standard.tiff",
+        exclusion_string="downsampled_standard.tiff",
     )
     layers.append(
         (
