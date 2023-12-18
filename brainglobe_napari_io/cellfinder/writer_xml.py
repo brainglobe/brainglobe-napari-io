@@ -19,8 +19,9 @@ def write_multiple_points_to_xml(
             name = attributes["name"]
             show_info(
                 f'Did not find point type in metadata for "{name}" layer, '
-                "not saving to file."
+                "Defaulting to 'Unknown'"
             )
+            cells_to_save.extend(convert_layer_to_cells(data, cells=False))
         elif attributes["metadata"]["point_type"] == Cell.CELL:
             cells_to_save.extend(convert_layer_to_cells(data))
         elif attributes["metadata"]["point_type"] == Cell.UNKNOWN:
