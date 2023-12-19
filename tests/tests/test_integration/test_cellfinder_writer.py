@@ -2,7 +2,7 @@ import pathlib
 
 from brainglobe_napari_io.cellfinder import reader_xml, writer_xml
 
-test_data_dir = pathlib.Path(__file__) / ".." / "data"
+test_data_dir = pathlib.Path(__file__).parent.parent.parent / "data"
 
 
 def test_xml_roundrip(tmpdir):
