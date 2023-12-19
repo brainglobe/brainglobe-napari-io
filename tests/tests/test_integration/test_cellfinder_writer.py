@@ -6,12 +6,12 @@ from brainglobe_utils.IO.cells import get_cells
 
 from brainglobe_napari_io.cellfinder import reader_xml, writer_xml
 
-test_data_dir = pathlib.Path(__file__).parent.parent.parent / "data"
+xml_dir = pathlib.Path(__file__).parent.parent.parent / "data" / "xml"
 
 
 def test_xml_roundrip(tmp_path):
     # Check that a read in XML file can also be written back out
-    validate_xml_file = test_data_dir / "cell_classification.xml"
+    validate_xml_file = xml_dir / "cell_classification.xml"
     layers = reader_xml.xml_reader(validate_xml_file)
     assert len(layers) == 2
 

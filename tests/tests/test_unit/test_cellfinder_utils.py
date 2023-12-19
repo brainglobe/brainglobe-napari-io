@@ -6,8 +6,8 @@ from brainglobe_utils.cells.cells import Cell
 
 from brainglobe_napari_io.cellfinder import utils
 
-test_data_dir = pathlib.Path(__file__).parent.parent.parent / "data"
-xml_file = test_data_dir / "cell_classification.xml"
+xml_dir = pathlib.Path(__file__).parent.parent.parent / "data" / "xml"
+xml_file = xml_dir / "cell_classification.xml"
 
 
 @pytest.fixture

@@ -4,10 +4,10 @@ import numpy as np
 
 from brainglobe_napari_io.cellfinder import reader_xml
 
-test_data_dir = pathlib.Path(__file__).parent.parent.parent / "data"
-xml_file = test_data_dir / "cell_classification.xml"
-broken_xml = test_data_dir / "broken_xml.xml"
-xml_with_incorrect_root_tag = test_data_dir / "incorrect_tag.xml"
+xml_dir = pathlib.Path(__file__).parent.parent.parent / "data" / "xml"
+xml_file = xml_dir / "cell_classification.xml"
+broken_xml = xml_dir / "broken_xml.xml"
+xml_with_incorrect_root_tag = xml_dir / "incorrect_tag.xml"
 
 
 def test_is_cellfinder_xml():
