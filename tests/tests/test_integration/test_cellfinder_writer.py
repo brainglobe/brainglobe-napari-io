@@ -30,8 +30,9 @@ def test_xml_roundrip(tmp_path):
 
 def test_xml_write_no_metadata(tmp_path):
     xml_path = str(tmp_path / "points.xml")
+    rng = np.random.default_rng()
     points = (
-        np.random.random((10, 3)),
+        rng.random((10, 3)),
         {
             "name": "test",
             "size": 1,
