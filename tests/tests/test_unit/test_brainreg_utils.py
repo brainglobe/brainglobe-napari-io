@@ -1,13 +1,20 @@
 import pathlib
 
-brainreg_dir = pathlib.Path(__file__).parent.parent.parent / "data" / "brainreg_output"
-
 from brainglobe_napari_io.brainreg import utils
+
+brainreg_dir = (
+    pathlib.Path(__file__).parent.parent.parent
+    / "data"
+    / "wholebrain_cell_output"
+    / "registration"
+)
+
 
 def test_is_brainreg():
     assert utils.is_brainreg_dir(brainreg_dir)
     assert not utils.is_brainreg_dir(__file__)
     assert not utils.is_brainreg_dir(brainreg_dir.parent)
+
 
 def test_load_additional_downsampled_channels():
     layers = utils.load_additional_downsampled_channels(brainreg_dir, [])
