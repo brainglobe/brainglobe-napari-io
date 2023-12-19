@@ -6,15 +6,18 @@ from typing import Callable, List, Optional, Tuple, Union
 import bg_space as bgs
 from napari.types import LayerDataTuple
 
-from ..brainreg.reader_dir import reader_function as brainreg_reader
-from .utils import load_cells
+from brainglobe_napari_io.brainreg.reader_dir import (
+    reader_function as brainreg_reader,
+)
+from brainglobe_napari_io.cellfinder.utils import load_cells
 
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 
 
-def is_cellfinder_dir(path: os.PathLike) -> bool:
+def is_wholebrain_cell_dir(path: os.PathLike) -> bool:
     """
-    Determines whether a path is to a cellfinder output directory.
+    Determines whether a path is to a BrainGlobe workflows whole brain
+    cell detection (previously cellfinder) output directory.
     """
     path = os.path.abspath(path)
     if os.path.isdir(path):
@@ -26,7 +29,7 @@ def is_cellfinder_dir(path: os.PathLike) -> bool:
     return False
 
 
-def cellfinder_read_dir(path: PathOrPaths) -> Optional[Callable]:
+def wholebrain_cell_read_dir(path: PathOrPaths) -> Optional[Callable]:
     """A basic implementation of the napari_get_reader hook specification.
 
     Parameters
@@ -40,7 +43,7 @@ def cellfinder_read_dir(path: PathOrPaths) -> Optional[Callable]:
         If the path is a recognized format, return a function that accepts the
         same path or list of paths, and returns a list of layer data tuples.
     """
-    if isinstance(path, str) and is_cellfinder_dir(path):
+    if isinstance(path, str) and is_wholebrain_cell_dir(path):
         return reader_function
     else:
         return None
@@ -75,7 +78,7 @@ def reader_function(
         layer_type=="image" if not provided
     """
 
-    print("Loading cellfinder directory")
+    print("Loading whole brain cell detection directory")
     path = Path(os.path.abspath(path))
     with open(path / "cellfinder.json") as json_file:
         metadata = json.load(json_file)
