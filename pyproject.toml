@@ -1,23 +1,24 @@
 [project]
 name = "brainglobe-napari-io"
-description = "Read and write files from the BrainGlobe neuroanatomy suite"
+authors = [{name = "Adam Tyson", email= "hello@brainglobe.info"}]
+description = "Read and write files from the BrainGlobe computational neuroanatomy suite into napari"
 readme = "README.md"
-authors = [{ name = "Adam Tyson", email = "code@adamltyson.com" }]
+requires-python = ">=3.9.0"
+dynamic = ["version"]
+
+license = {text = "BSD-3-Clause"}
 classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: napari",
-    "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Topic :: Scientific/Engineering :: Image Recognition",
 ]
-requires-python = ">=3.8"
 dependencies = [
     "bg-atlasapi",
     "bg_space",
@@ -27,8 +28,6 @@ dependencies = [
     "numpy",
     "pandas",
 ]
-license = { text = "BSD-3-Clause" }
-dynamic = ['version']
 
 [project.urls]
 Homepage = "https://brainglobe.info"
@@ -39,14 +38,29 @@ Documentation = "https://docs.brainglobe.info"
 Twitter = "https://twitter.com/brain_globe"
 
 [project.optional-dependencies]
-dev = ["black", "pre-commit", "pytest", "pytest-cov"]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "coverage",
+  "tox",
+  "black",
+  "mypy",
+  "pre-commit",
+  "ruff",
+  "setuptools_scm",
+]
+
 
 [project.entry-points."napari.manifest"]
 brainglobe-napari-io = "brainglobe_napari_io:napari.yaml"
 
 
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+requires = [
+    "setuptools>=45",
+    "wheel",
+    "setuptools_scm[toml]>=6.2",
+]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -54,19 +68,48 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 include = ["brainglobe_napari_io*"]
-
-[tool.setuptools_scm]
+exclude = ["tests*"]
 
 [tool.pytest.ini_options]
-filterwarnings = ["error"]
+addopts = "--cov=brainglobe_napari_io"
 
 [tool.black]
-target-version = ['py38', 'py39', 'py310', 'py311']
+target-version = ['py39', 'py310', 'py311']
 skip-string-normalization = false
 line-length = 79
 
+[tool.setuptools_scm]
+
+[tool.check-manifest]
+ignore = [
+  ".yaml",
+  "tox.ini",
+  "tests/",
+  "tests/test_unit/",
+  "tests/test_integration/",
+]
+
 [tool.ruff]
 line-length = 79
-exclude = ["__init__.py", "build", ".eggs"]
+exclude = ["__init__.py","build",".eggs"]
 select = ["I", "E", "F"]
 fix = true
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py{39,310,311}
+isolated_build = True
+
+[gh-actions]
+python =
+    3.9: py39
+    3.10: py310
+    3.11: py311
+
+[testenv]
+extras =
+    dev
+commands =
+    pytest -v --color=yes --cov=brainglobe_napari_io --cov-report=xml
+"""
