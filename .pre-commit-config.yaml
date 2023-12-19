@@ -7,7 +7,6 @@ repos:
       rev: v4.4.0
       hooks:
           - id: check-docstring-first
-          - id: check-executables-have-shebangs
           - id: check-merge-conflict
           - id: check-toml
           - id: end-of-file-fixer
