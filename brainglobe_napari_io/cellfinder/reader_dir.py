@@ -1,14 +1,3 @@
-"""
-This module is an example of a barebones numpy reader plugin for napari.
-
-It implements the ``napari_get_reader`` hook specification, (to create
-a reader plugin) but your plugin may choose to implement any of the hook
-specifications offered by napari.
-see: https://napari.org/docs/plugins/hook_specifications.html
-
-Replace code below accordingly.  For complete documentation see:
-https://napari.org/docs/plugins/for_plugin_developers.html
-"""
 import json
 import os
 from pathlib import Path
