@@ -14,7 +14,6 @@ def test_is_cellfinder_xml():
     assert reader_xml.is_cellfinder_xml(xml_file)
     assert not reader_xml.is_cellfinder_xml(__file__)
     assert not reader_xml.is_cellfinder_xml(broken_xml)
-    assert not reader_xml.is_cellfinder_xml(broken_xml)
     assert not reader_xml.is_cellfinder_xml(xml_with_incorrect_root_tag)
 
 
