@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Test>
+  <Image_Properties>
+    <Image_Filename>placeholder.tif</Image_Filename>
+  </Image_Properties>
+  <Marker_Data>
+    <Current_Type>1</Current_Type>
+    <Marker_Type>
+      <Type>1</Type>
+      <Marker>
+        <MarkerX>1</MarkerX>
+        <MarkerY>2</MarkerY>
+        <MarkerZ>3</MarkerZ>
+      </Marker>
+    </Marker_Type>
+    <Marker_Type>
+      <Type>2</Type>
+      <Marker>
+        <MarkerX>4</MarkerX>
+        <MarkerY>5</MarkerY>
+        <MarkerZ>6</MarkerZ>
+      </Marker>
+    </Marker_Type>
+  </Marker_Data>
+</Test>

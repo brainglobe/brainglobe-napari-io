@@ -20,13 +20,6 @@ def cells_df_as_np(
     return cells
 
 
-def cells_to_array(cells) -> Tuple[np.ndarray, np.ndarray]:
-    df = pd.DataFrame([c.to_dict() for c in cells])
-    points = cells_df_as_np(df[df["type"] == Cell.CELL])
-    rejected = cells_df_as_np(df[df["type"] == Cell.UNKNOWN])
-    return points, rejected
-
-
 def get_cell_arrays(cells_file: os.PathLike) -> Tuple[np.ndarray, np.ndarray]:
     df = cells_xml_to_df(str(cells_file))
 

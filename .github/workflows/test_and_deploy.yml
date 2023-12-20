@@ -1,18 +1,18 @@
-name: Test (and Deploy on tag)
+name: tests
 
 on:
   push:
     branches:
-    - main
+      - '*'
     tags:
       - '*'
   pull_request:
 
 jobs:
   linting:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: neuroinformatics-unit/actions/lint@v2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: neuroinformatics-unit/actions/lint@v2
 
   manifest:
     name: Check Manifest
@@ -21,43 +21,39 @@ jobs:
       - uses: neuroinformatics-unit/actions/check_manifest@v2
 
   test:
+    needs: [linting, manifest]
     name: ${{ matrix.os }} py${{ matrix.python-version }}
-    needs: [linting,manifest]
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
       matrix:
-        # Run across a mixture of Python versions and operating systems
+        # Run all supported Python versions on linux
+        python-version: ["3.9", "3.10", "3.11"]
+        os: [ubuntu-latest]
+        # Include one windows and macos run
         include:
-        - os: ubuntu-latest
-          python-version: "3.11"
         - os: macos-latest
           python-version: "3.10"
         - os: windows-latest
-          python-version: "3.9"
-        - os: ubuntu-latest
-          python-version: "3.8"
+          python-version: "3.10"
 
     steps:
-      # these libraries enable testing on Qt on linux
-      - uses: tlambert03/setup-qt-libs@v1
       # Run tests
       - uses: neuroinformatics-unit/actions/test@v2
         with:
           python-version: ${{ matrix.python-version }}
 
-  build_sdist_wheel:
-    name: Build source distribution and wheel
+  build_sdist_wheels:
+    name: Build source distribution
     needs: [test]
     if: github.event_name == 'push' && github.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
-    - uses:  neuroinformatics-unit/actions/build_sdist_wheels@v2
+    - uses: neuroinformatics-unit/actions/build_sdist_wheels@v2
+
 
   upload_all:
     name: Publish build distributions
-    needs: [build_sdist_wheel]
-    if: github.event_name == 'push' && github.ref_type == 'tag'
+    needs: [build_sdist_wheels]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/download-artifact@v3

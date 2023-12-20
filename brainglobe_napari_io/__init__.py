@@ -1,5 +1,7 @@
-from importlib_metadata import version
+from importlib.metadata import PackageNotFoundError, version
 
-__version__ = version("brainglobe-napari-io")
-__author__ = "Adam Tyson"
-__license__ = "BSD-3-Clause"
+try:
+    __version__ = version("brainglobe-napari-io")
+except PackageNotFoundError:
+    # package is not installed
+    pass

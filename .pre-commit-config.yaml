@@ -7,7 +7,6 @@ repos:
       rev: v4.5.0
       hooks:
           - id: check-docstring-first
-          - id: check-executables-have-shebangs
           - id: check-merge-conflict
           - id: check-toml
           - id: end-of-file-fixer
@@ -16,7 +15,7 @@ repos:
           - id: requirements-txt-fixer
           - id: trailing-whitespace
     - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.1.6
+      rev: v0.1.7
       hooks:
         - id: ruff
     - repo: https://github.com/psf/black
@@ -29,3 +28,9 @@ repos:
           - id: mypy
             additional_dependencies:
                 - types-setuptools
+    - repo: https://github.com/mgedmin/check-manifest
+      rev: "0.49"
+      hooks:
+          - id: check-manifest
+            args: [--no-build-isolation]
+            additional_dependencies: [setuptools-scm]
