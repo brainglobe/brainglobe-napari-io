@@ -5,7 +5,7 @@ from brainglobe_napari_io.brainreg import reader_dir_atlas_space
 brainreg_dir = (
     pathlib.Path(__file__).parent.parent.parent
     / "data"
-    / "wholebrain_cell_output"
+    / "brainmapper_output"
     / "registration"
 )
 
