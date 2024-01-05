@@ -1,7 +1,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Callable, List, Optional, Tuple, Union
+from typing import Callable, Dict, List, Optional, Tuple, Union
 
 import bg_space as bgs
 from napari.types import LayerDataTuple
@@ -14,9 +14,9 @@ from brainglobe_napari_io.cellfinder.utils import load_cells
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 
 
-def is_wholebrain_cell_dir(path: os.PathLike) -> bool:
+def is_brainmapper_dir(path: os.PathLike) -> bool:
     """
-    Determines whether a path is to a BrainGlobe workflows whole brain
+    Determines whether a path is to a BrainGlobe brainmapper whole brain
     cell detection (previously cellfinder) output directory.
     """
     path = os.path.abspath(path)
@@ -24,12 +24,15 @@ def is_wholebrain_cell_dir(path: os.PathLike) -> bool:
         filelist = os.listdir(path)
     else:
         return False
-    if "cellfinder.json" in filelist:
+    if "brainmapper.json" in filelist:
+        return True
+    # for backwards compatibility
+    elif "cellfinder.json" in filelist:
         return True
     return False
 
 
-def wholebrain_cell_read_dir(path: PathOrPaths) -> Optional[Callable]:
+def brainmapper_read_dir(path: PathOrPaths) -> Optional[Callable]:
     """A basic implementation of the napari_get_reader hook specification.
 
     Parameters
@@ -43,10 +46,21 @@ def wholebrain_cell_read_dir(path: PathOrPaths) -> Optional[Callable]:
         If the path is a recognized format, return a function that accepts the
         same path or list of paths, and returns a list of layer data tuples.
     """
-    if isinstance(path, str) and is_wholebrain_cell_dir(path):
+    if isinstance(path, str) and is_brainmapper_dir(path):
         return reader_function
     else:
         return None
+
+
+def get_metadata(directory: Path) -> Dict:
+    try:
+        with open(directory / "brainmapper.json") as json_file:
+            metadata = json.load(json_file)
+    # for backwards compatibility
+    except FileNotFoundError:
+        with open(directory / "cellfinder.json") as json_file:
+            metadata = json.load(json_file)
+    return metadata
 
 
 def reader_function(
@@ -78,10 +92,9 @@ def reader_function(
         layer_type=="image" if not provided
     """
 
-    print("Loading whole brain cell detection directory")
+    print("Loading brainmapper directory")
     path = Path(os.path.abspath(path))
-    with open(path / "cellfinder.json") as json_file:
-        metadata = json.load(json_file)
+    metadata = get_metadata(path)
 
     layers: List[LayerDataTuple] = []
 

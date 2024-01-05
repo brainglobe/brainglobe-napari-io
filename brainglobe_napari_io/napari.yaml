@@ -10,9 +10,9 @@ contributions:
     title: Brainreg Read Directory Atlas Space
     python_name: brainglobe_napari_io.brainreg.reader_dir_atlas_space:brainreg_read_dir_atlas_space
 
-  - id: brainglobe-napari-io.workflows_wholebrain_cell_read_dir
-    title: Workflows Whole Brain Cell Detection Read Directory
-    python_name: brainglobe_napari_io.workflows.wholebrain_cell_reader_dir:wholebrain_cell_read_dir
+  - id: brainglobe-napari-io.brainmapper_read_dir
+    title: Brainmapper Read Directory
+    python_name: brainglobe_napari_io.brainmapper.brainmapper_reader_dir:brainmapper_read_dir
 
   - id: brainglobe-napari-io.cellfinder_read_xml
     title: Cellfinder Read XML
@@ -34,7 +34,7 @@ contributions:
       - '*.tiff'
     accepts_directories: true
 
-  - command: brainglobe-napari-io.workflows_wholebrain_cell_read_dir
+  - command: brainglobe-napari-io.brainmapper_read_dir
     filename_patterns:
     - '*.tif'
     accepts_directories: true
