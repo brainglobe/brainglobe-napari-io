@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = [
     "bg-atlasapi",
-    "bg_space",
+    "bg-space",
     "brainglobe-utils",
     "napari",
     "tifffile>=2020.8.13",
