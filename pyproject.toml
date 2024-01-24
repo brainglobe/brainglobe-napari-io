@@ -1,12 +1,12 @@
 [project]
 name = "brainglobe-napari-io"
-authors = [{name = "Adam Tyson", email= "hello@brainglobe.info"}]
+authors = [{ name = "Adam Tyson", email = "hello@brainglobe.info" }]
 description = "Read and write files from the BrainGlobe computational neuroanatomy suite into napari"
 readme = "README.md"
 requires-python = ">=3.9.0"
 dynamic = ["version"]
 
-license = {text = "BSD-3-Clause"}
+license = { text = "BSD-3-Clause" }
 classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: napari",
@@ -21,7 +21,7 @@ classifiers = [
 ]
 dependencies = [
     "bg-atlasapi",
-    "bg-space",
+    "brainglobe-space >=1.0.0",
     "brainglobe-utils",
     "napari",
     "tifffile>=2020.8.13",
@@ -39,15 +39,15 @@ Twitter = "https://twitter.com/brain_globe"
 
 [project.optional-dependencies]
 dev = [
-  "pytest",
-  "pytest-cov",
-  "coverage",
-  "tox",
-  "black",
-  "mypy",
-  "pre-commit",
-  "ruff",
-  "setuptools_scm",
+    "pytest",
+    "pytest-cov",
+    "coverage",
+    "tox",
+    "black",
+    "mypy",
+    "pre-commit",
+    "ruff",
+    "setuptools_scm",
 ]
 
 
@@ -56,11 +56,7 @@ brainglobe-napari-io = "brainglobe_napari_io:napari.yaml"
 
 
 [build-system]
-requires = [
-    "setuptools>=45",
-    "wheel",
-    "setuptools_scm[toml]>=6.2",
-]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -82,16 +78,16 @@ line-length = 79
 
 [tool.check-manifest]
 ignore = [
-  ".yaml",
-  "tox.ini",
-  "tests/",
-  "tests/test_unit/",
-  "tests/test_integration/",
+    ".yaml",
+    "tox.ini",
+    "tests/",
+    "tests/test_unit/",
+    "tests/test_integration/",
 ]
 
 [tool.ruff]
 line-length = 79
-exclude = ["__init__.py","build",".eggs"]
+exclude = ["__init__.py", "build", ".eggs"]
 select = ["I", "E", "F"]
 fix = true
 
