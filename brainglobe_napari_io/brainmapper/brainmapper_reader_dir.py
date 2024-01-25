@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 from typing import Callable, Dict, List, Optional, Tuple, Union
 
-import bg_space as bgs
+import brainglobe_space as bgs
 from napari.types import LayerDataTuple
 
 from brainglobe_napari_io.brainreg.reader_dir import (
