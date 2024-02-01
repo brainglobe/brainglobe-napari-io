@@ -1,0 +1,23 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: brainglobe-napari-io
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: BrainGlobe
+    family-names: Developers
+    email: hello@brainglobe.info
+  - given-names: Adam
+    family-names: Tyson
+    email: hello@brainglobe.info
+    affiliation: 'Sainsbury Wellcome Centre, University College London'
+repository-code: 'https://github.com/brainglobe/brainglobe-napari-io'
+url: 'https://brainglobe.info'
+abstract: Visualise cellfinder and brainreg results with napari.
+license: BSD-3-Clause
+date-released: '2024-01-25'
+year: 2024
