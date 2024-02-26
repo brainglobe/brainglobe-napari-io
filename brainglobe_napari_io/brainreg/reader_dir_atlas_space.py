@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Callable, List, Optional, Union
 
 import tifffile
-from bg_atlasapi.bg_atlas import BrainGlobeAtlas
+from brainglobe_atlasapi.bg_atlas import BrainGlobeAtlas
 from napari.types import LayerDataTuple
 
 from .utils import is_brainreg_dir, load_additional_downsampled_channels
