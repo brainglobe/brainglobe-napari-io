@@ -4,7 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/v/brainglobe-napari-io.svg?color=green)](https://pypi.org/project/brainglobe-napari-io)
 [![Python Version](https://img.shields.io/pypi/pyversions/brainglobe-napari-io.svg?color=green)](https://python.org)
 [![tests](https://github.com/brainglobe/brainglobe-napari-io/workflows/tests/badge.svg)](https://github.com/brainglobe/brainglobe-napari-io/actions)
-[![codecov](https://codecov.io/gh/brainglobe/brainglobe-napari-io/branch/master/graph/badge.svg)](https://codecov.io/gh/brainglobe/brainglobe-napari-io)
+[![codecov](https://codecov.io/gh/brainglobe/brainglobe-napari-io/branch/main/graph/badge.svg)](https://codecov.io/gh/brainglobe/brainglobe-napari-io)
 
 Visualise cellfinder and brainreg results with napari
 
