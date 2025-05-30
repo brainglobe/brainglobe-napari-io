@@ -1,11 +1,6 @@
 name: tests
 
 on:
-  push:
-    branches:
-      - '*'
-    tags:
-      - '*'
   pull_request:
   schedule:
   # Runs at 6:10am UTC on Monday
