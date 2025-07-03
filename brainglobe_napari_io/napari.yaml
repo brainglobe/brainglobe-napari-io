@@ -14,13 +14,17 @@ contributions:
     title: Brainmapper Read Directory
     python_name: brainglobe_napari_io.brainmapper.brainmapper_reader_dir:brainmapper_read_dir
 
-  - id: brainglobe-napari-io.cellfinder_read_xml
+  - id: brainglobe-napari-io.cellfinder_read_points
     title: Cellfinder Read XML
-    python_name: brainglobe_napari_io.cellfinder.reader_xml:cellfinder_read_xml
+    python_name: brainglobe_napari_io.cellfinder.reader_points:cellfinder_read_points
 
-  - id: brainglobe-napari-io.cellfinder_write_multiple_xml
-    title: Write Points
-    python_name: brainglobe_napari_io.cellfinder.writer_xml:write_multiple_points_to_xml
+  - id: brainglobe-napari-io.cellfinder_read_yml
+    title: Cellfinder Read YAML
+    python_name: brainglobe_napari_io.cellfinder.reader_yml:cellfinder_read_yml
+
+  - id: brainglobe-napari-io.cellfinder_write_multiple_points
+    title: Write Points to XML/YAML
+    python_name: brainglobe_napari_io.cellfinder.writer_points:write_multiple_points
 
 
   readers:
@@ -39,16 +43,20 @@ contributions:
     - '*.tif'
     accepts_directories: true
 
-  - command: brainglobe-napari-io.cellfinder_read_xml
+  - command: brainglobe-napari-io.cellfinder_read_points
     filename_patterns:
     - '*.xml'
+    - '*.yml'
+    - '*.yaml'
     accepts_directories: false
 
 
   writers:
-  - command: brainglobe-napari-io.cellfinder_write_multiple_xml
+  - command: brainglobe-napari-io.cellfinder_write_multiple_points
     layer_types:
     - "points+"
     filename_extensions:
       - .xml
+      - .yml
+      - .yaml
     display_name: multiple_points
