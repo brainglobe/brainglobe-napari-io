@@ -20,7 +20,7 @@ def cellfinder_read_points(path):
         same path or list of paths, and returns a list of layer data tuples.
     """
     if isinstance(path, str) and (
-        is_cellfinder_xml(path) or is_cellfinder_yaml(path)
+        is_cellfinder_xml(path) or is_cellfinder_yml(path)
     ):
         return points_reader
     return None
@@ -33,7 +33,7 @@ def is_cellfinder_xml(path):
     return False
 
 
-def is_cellfinder_yaml(path):
+def is_cellfinder_yml(path):
     path = Path(path).resolve()
     if path.suffix in (".yaml", ".yml"):
         return is_brainglobe_yaml(path)
