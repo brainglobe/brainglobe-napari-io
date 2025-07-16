@@ -23,7 +23,7 @@ dependencies = [
     "brainglobe-atlasapi >=2.0.1",
     "brainglobe-space >=1.0.0",
     "brainglobe-utils >=0.4.2",
-    "napari >=0.5, !=0.6.0",
+    "napari>=0.6.1",
     "tifffile>=2020.8.13",
     "numpy",
     "pandas",
