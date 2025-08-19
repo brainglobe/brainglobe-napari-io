@@ -1,6 +1,6 @@
 import pathlib
 
-from brainglobe_napari_io.brainreg import utils
+from brainglobe_napari_io import utils
 
 brainreg_dir = (
     pathlib.Path(__file__).parent.parent.parent
