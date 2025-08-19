@@ -9,8 +9,7 @@ from brainglobe_napari_io.brainreg.reader_dir import (
     reader_function as brainreg_reader,
 )
 from brainglobe_napari_io.cellfinder.utils import load_cells
-
-from ..utils import get_atlas, scale_reorient_layers
+from brainglobe_napari_io.utils import get_atlas, scale_reorient_layers
 
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 

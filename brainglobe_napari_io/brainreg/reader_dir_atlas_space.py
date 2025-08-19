@@ -7,7 +7,10 @@ import tifffile
 from brainglobe_atlasapi.bg_atlas import BrainGlobeAtlas
 from napari.types import LayerDataTuple
 
-from .utils import is_brainreg_dir, load_additional_downsampled_channels
+from brainglobe_napari_io.utils import (
+    is_brainreg_dir,
+    load_additional_downsampled_channels,
+)
 
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 

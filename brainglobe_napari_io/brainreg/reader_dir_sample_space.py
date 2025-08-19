@@ -9,9 +9,11 @@ from napari.types import LayerDataTuple
 from brainglobe_napari_io.brainreg.reader_dir import (
     reader_function as brainreg_reader,
 )
-
-from ..utils import get_atlas, scale_reorient_layers
-from .utils import is_brainreg_dir
+from brainglobe_napari_io.utils import (
+    get_atlas,
+    is_brainreg_dir,
+    scale_reorient_layers,
+)
 
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 
