@@ -2,9 +2,9 @@ name: brainglobe-napari-io
 schema_version: 0.1.0
 contributions:
   commands:
-  - id: brainglobe-napari-io.brainreg_read_dir_sample_resolution
+  - id: brainglobe-napari-io.brainreg_read_dir_sample_space
     title: Brainreg Read Directory
-    python_name: brainglobe_napari_io.brainreg.reader_sample_resolution:brainreg_read_dir_sample_resolution
+    python_name: brainglobe_napari_io.brainreg.reader_dir_sample_space:brainreg_read_dir_sample_space
 
   - id: brainglobe-napari-io.brainreg_read_dir
     title: Brainreg Read Directory
@@ -28,7 +28,7 @@ contributions:
 
 
   readers:
-  - command: brainglobe-napari-io.brainreg_read_dir_sample_resolution
+  - command: brainglobe-napari-io.brainreg_read_dir_sample_space
     filename_patterns:
     - '*.tiff'
     accepts_directories: true

@@ -16,7 +16,7 @@ from .utils import is_brainreg_dir
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 
 
-def brainreg_read_dir_sample_resolution(
+def brainreg_read_dir_sample_space(
     path: PathOrPaths,
 ) -> Optional[Callable]:
     """A basic implementation of the napari_get_reader hook specification.
@@ -80,7 +80,6 @@ def load_registration(
     layers: List[LayerDataTuple], registration_directory: os.PathLike, metadata
 ) -> List[LayerDataTuple]:
     registration_layers = brainreg_reader(registration_directory)
-    # registration_layers = remove_downsampled_images(registration_layers)
     atlas = get_atlas(registration_layers)
 
     registration_layers = scale_reorient_layers(
