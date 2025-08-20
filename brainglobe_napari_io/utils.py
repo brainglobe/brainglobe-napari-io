@@ -58,8 +58,8 @@ def load_additional_downsampled_channels(
 
 def get_atlas(layers: List[LayerDataTuple]):
     for layer in layers:
-        atlas = layer[1]["metadata"]["atlas_class"]
-        if atlas:
+        if "metadata" in layer[1].keys():
+            atlas = layer[1]["metadata"]["atlas_class"]
             return atlas
 
 
@@ -157,6 +157,13 @@ def scale_registration_layer(layer: LayerDataTuple, scale) -> LayerDataTuple:
 def remove_downsampled_images(
     layers: List[LayerDataTuple],
 ) -> List[LayerDataTuple]:
-    # assumes the atlas annotations and boundaries are the last two layers
-    layers = list(layers)
-    return layers[-2:]
+    # explicitly remove the downsampled images and the registered image
+    # (which is also downsampled)
+    # rather than assuming they are the last two layers
+
+    return [
+        layer
+        for layer in layers
+        if not layer[1]["name"].endswith("(downsampled)")
+        and not "Registered image" == layer[1]["name"]
+    ]
