@@ -4,6 +4,7 @@ from typing import List, Tuple
 
 import brainglobe_space as bgs
 import tifffile
+from brainglobe_atlasapi.bg_atlas import BrainGlobeAtlas
 from napari.types import LayerDataTuple
 
 
@@ -60,6 +61,26 @@ def get_atlas(layers: List[LayerDataTuple]):
         atlas = layer[1]["metadata"]["atlas_class"]
         if atlas:
             return atlas
+
+
+def load_atlas(
+    atlas: BrainGlobeAtlas, layers: List[LayerDataTuple]
+) -> List[LayerDataTuple]:
+    atlas_image = atlas.annotation
+    layers.append(
+        (
+            atlas_image,
+            {
+                "name": atlas.atlas_name,
+                "visible": False,
+                "blending": "additive",
+                "opacity": 0.3,
+            },
+            "labels",
+        )
+    )
+
+    return layers
 
 
 def scale_reorient_layers(

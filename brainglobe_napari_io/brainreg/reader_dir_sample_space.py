@@ -89,23 +89,3 @@ def load_registration(
     )
     layers.extend(registration_layers)
     return layers
-
-
-def load_atlas(
-    atlas: BrainGlobeAtlas, layers: List[LayerDataTuple]
-) -> List[LayerDataTuple]:
-    atlas_image = atlas.annotation
-    layers.append(
-        (
-            atlas_image,
-            {
-                "name": atlas.atlas_name,
-                "visible": False,
-                "blending": "additive",
-                "opacity": 0.3,
-            },
-            "labels",
-        )
-    )
-
-    return layers
