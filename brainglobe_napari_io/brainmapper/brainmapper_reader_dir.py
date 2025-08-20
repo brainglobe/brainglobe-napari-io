@@ -9,7 +9,11 @@ from brainglobe_napari_io.brainreg.reader_dir import (
     reader_function as brainreg_reader,
 )
 from brainglobe_napari_io.cellfinder.utils import load_cells
-from brainglobe_napari_io.utils import get_atlas, scale_reorient_layers
+from brainglobe_napari_io.utils import (
+    get_atlas,
+    remove_downsampled_images,
+    scale_reorient_layers,
+)
 
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 
@@ -156,11 +160,3 @@ def load_registration(
     )
     layers.extend(registration_layers)
     return layers
-
-
-def remove_downsampled_images(
-    layers: List[LayerDataTuple],
-) -> List[LayerDataTuple]:
-    # assumes the atlas annotations and boundaries are the last two layers
-    layers = list(layers)
-    return layers[-2:]

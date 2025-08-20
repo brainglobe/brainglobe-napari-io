@@ -12,6 +12,7 @@ from brainglobe_napari_io.brainreg.reader_dir import (
 from brainglobe_napari_io.utils import (
     get_atlas,
     is_brainreg_dir,
+    remove_downsampled_images,
     scale_reorient_layers,
 )
 
@@ -82,6 +83,7 @@ def load_registration(
     layers: List[LayerDataTuple], registration_directory: os.PathLike, metadata
 ) -> List[LayerDataTuple]:
     registration_layers = brainreg_reader(registration_directory)
+    registration_layers = remove_downsampled_images(registration_layers)
     atlas = get_atlas(registration_layers)
 
     registration_layers = scale_reorient_layers(

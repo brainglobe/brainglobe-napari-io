@@ -152,3 +152,11 @@ def scale_registration_layer(layer: LayerDataTuple, scale) -> LayerDataTuple:
     layer[1]["scale"] = scale
     layer = tuple(layer)
     return layer
+
+
+def remove_downsampled_images(
+    layers: List[LayerDataTuple],
+) -> List[LayerDataTuple]:
+    # assumes the atlas annotations and boundaries are the last two layers
+    layers = list(layers)
+    return layers[-2:]
