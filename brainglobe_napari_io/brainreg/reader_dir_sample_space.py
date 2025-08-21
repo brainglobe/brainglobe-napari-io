@@ -22,7 +22,8 @@ PathOrPaths = Union[List[os.PathLike], os.PathLike]
 def brainreg_read_dir_sample_space(
     path: PathOrPaths,
 ) -> Optional[Callable]:
-    """A basic implementation of the napari_get_reader hook specification.
+    """A napari_get_reader hook specification for a reader of sample-space
+    sample-resolution brainreg registration directory.
 
     Parameters
     ----------
@@ -43,27 +44,31 @@ def brainreg_read_dir_sample_space(
 
 
 def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
-    """
-    Readers are expected to return data as a list of tuples, where each tuple
-    is (data, [add_kwargs, [layer_type]]), "add_kwargs" and "layer_type" are
-    both optional.
+    """Reader function to read a brainreg registration directory in sample
+    space at sample resolution.
+
+    Original high-resolution images are expected to be loaded independently
+    by the user.
+
+    Use reader_dir_atlas_space for atlas space at atlas resolution, and
+    reader_dir for sample space at atlas resolution.
 
     Parameters
     ----------
     path : str or list of str
-        Path to file, or list of paths.
+        Path to brainreg registration directory.
 
     Returns
     -------
-    layer_data : list of tuples
-        A list of LayerData tuples where each tuple in the list contains
-        (data, metadata, layer_type), where data is a numpy array, metadata is
-        a dict of keyword arguments for the corresponding viewer.add_* method
-        in napari, and layer_type is a lower-case string naming the type of
-        layer.
-
-        Both "meta", and "layer_type" are optional. napari will default to
-        layer_type=="image" if not provided
+    layer_data : list of LayerDataTuple
+        A list of LayerData tuples containing the following elements from
+        brainreg registration directory:
+        - Registered hemispheres label layer scaled and oriented at sample
+          resolution.
+        - Registered atlas label layer scaled and oriented at
+          sample resolution.
+        - Registered boundaries image layer scaled and oriented at sample
+          resolution.
     """
 
     path = Path(os.path.abspath(path))
@@ -82,6 +87,33 @@ def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
 def load_registration(
     layers: List[LayerDataTuple], registration_directory: os.PathLike, metadata
 ) -> List[LayerDataTuple]:
+    """Load registration layers from a brainreg registration directory and
+    scale and orient them to sample resolution.
+
+    Parameters
+    ----------
+    layers : list of LayerDataTuple
+        List of LayerData tuples to which the registration layers will be
+        added.
+    registration_directory : os.PathLike
+        Path to the brainreg registration directory.
+    metadata : dict
+        Metadata dictionary containing information about the registration,
+        including atlas information. Typically loaded from "brainreg.json"
+        exported from brainreg registration.
+
+    Returns
+    -------
+    layer_data : list of LayerDataTuple
+        A list of LayerData tuples containing the following elements from
+        brainreg registration directory:
+        - Registered hemispheres label layer scaled and oriented at sample
+          resolution.
+        - Registered atlas label layer scaled and oriented at
+          sample resolution.
+        - Registered boundaries image layer scaled and oriented at sample
+          resolution.
+    """
     registration_layers = brainreg_reader(registration_directory)
     registration_layers = remove_downsampled_images(registration_layers)
     atlas = get_atlas(registration_layers)
