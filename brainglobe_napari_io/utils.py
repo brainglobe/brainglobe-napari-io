@@ -56,7 +56,7 @@ def load_additional_downsampled_channels(
     return layers
 
 
-def get_atlas(layers: List[LayerDataTuple]):
+def get_atlas_class(layers: List[LayerDataTuple]):
     for layer in layers:
         if "metadata" in layer[1].keys():
             atlas = layer[1]["metadata"]["atlas_class"]
