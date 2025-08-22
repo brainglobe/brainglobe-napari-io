@@ -3,11 +3,11 @@ schema_version: 0.1.0
 contributions:
   commands:
   - id: brainglobe-napari-io.brainreg_read_dir
-    title: Atlas Space, Atlas Resolution
+    title: Sample Space, Atlas Resolution
     python_name: brainglobe_napari_io.brainreg.reader_dir:brainreg_read_dir
 
   - id: brainglobe-napari-io.brainreg_read_dir_atlas_space
-    title: Sample Space, Atlas Resolution
+    title: Atlas Space, Atlas Resolution
     python_name: brainglobe_napari_io.brainreg.reader_dir_atlas_space:brainreg_read_dir_atlas_space
 
   - id: brainglobe-napari-io.brainreg_read_dir_sample_space
@@ -15,11 +15,11 @@ contributions:
     python_name: brainglobe_napari_io.brainreg.reader_dir_sample_space:brainreg_read_dir_sample_space
 
   - id: brainglobe-napari-io.brainreg_select_dir
-    title: Atlas Space, Atlas Resolution
+    title: Sample Space, Atlas Resolution
     python_name: brainglobe_napari_io.brainreg.reader_dir:select_dialog
 
   - id: brainglobe-napari-io.brainreg_select_dir_atlas_space
-    title: Sample Space, Atlas Resolution
+    title: Atlas Space, Atlas Resolution
     python_name: brainglobe_napari_io.brainreg.reader_dir_atlas_space:select_dialog
 
   - id: brainglobe-napari-io.brainreg_select_read_dir_sample_space
