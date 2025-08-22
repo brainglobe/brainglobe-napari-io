@@ -62,11 +62,18 @@ def test_get_metadata():
 
 def test_load_brainmapper_dir():
     layers = brainmapper_reader_dir.reader_function(brainmapper_dir)
-    assert len(layers) == 4
+    assert len(layers) == 5
 
-    layer_names = ["allen_mouse_100um", "Boundaries", "Non cells", "Cells"]
-    layer_types = ["labels", "image", "points", "points"]
+    layer_names = [
+        "Hemispheres",
+        "allen_mouse_100um",
+        "Boundaries",
+        "Non cells",
+        "Cells",
+    ]
+    layer_types = ["labels", "labels", "image", "points", "points"]
     layer_shapes = [
+        DOWNSAMPLED_IMAGE_SIZE,
         DOWNSAMPLED_IMAGE_SIZE,
         DOWNSAMPLED_IMAGE_SIZE,
         (22, 3),
@@ -82,9 +89,9 @@ def test_load_registration(metadata):
     layers = brainmapper_reader_dir.load_registration(
         [], registration_dir, metadata
     )
-    assert len(layers) == 2
-    assert layers[0][0].shape == DOWNSAMPLED_IMAGE_SIZE
-    assert layers[1][0].shape == DOWNSAMPLED_IMAGE_SIZE
+    assert len(layers) == 3
 
-    assert layers[0][1]["name"] == "allen_mouse_100um"
-    assert layers[1][1]["name"] == "Boundaries"
+    layer_names = ["Hemispheres", "allen_mouse_100um", "Boundaries"]
+    for idx, layer in enumerate(layers):
+        assert layer[0].shape == DOWNSAMPLED_IMAGE_SIZE
+        assert layer[1]["name"] == layer_names[idx]

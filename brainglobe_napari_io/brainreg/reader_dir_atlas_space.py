@@ -7,7 +7,11 @@ import tifffile
 from brainglobe_atlasapi.bg_atlas import BrainGlobeAtlas
 from napari.types import LayerDataTuple
 
-from .utils import is_brainreg_dir, load_additional_downsampled_channels
+from brainglobe_napari_io.utils import (
+    is_brainreg_dir,
+    load_additional_downsampled_channels,
+    load_atlas,
+)
 
 PathOrPaths = Union[List[os.PathLike], os.PathLike]
 
@@ -79,25 +83,5 @@ def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
         )
     )
     layers = load_atlas(atlas, layers)
-
-    return layers
-
-
-def load_atlas(
-    atlas: BrainGlobeAtlas, layers: List[LayerDataTuple]
-) -> List[LayerDataTuple]:
-    atlas_image = atlas.annotation
-    layers.append(
-        (
-            atlas_image,
-            {
-                "name": atlas.atlas_name,
-                "visible": False,
-                "blending": "additive",
-                "opacity": 0.3,
-            },
-            "labels",
-        )
-    )
 
     return layers

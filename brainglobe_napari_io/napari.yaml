@@ -10,6 +10,10 @@ contributions:
     title: Brainreg Read Directory Atlas Space
     python_name: brainglobe_napari_io.brainreg.reader_dir_atlas_space:brainreg_read_dir_atlas_space
 
+  - id: brainglobe-napari-io.brainreg_read_dir_sample_space
+    title: Brainreg Read Directory
+    python_name: brainglobe_napari_io.brainreg.reader_dir_sample_space:brainreg_read_dir_sample_space
+
   - id: brainglobe-napari-io.brainmapper_read_dir
     title: Brainmapper Read Directory
     python_name: brainglobe_napari_io.brainmapper.brainmapper_reader_dir:brainmapper_read_dir
@@ -32,6 +36,11 @@ contributions:
   - command: brainglobe-napari-io.brainreg_read_dir_atlas_space
     filename_patterns:
       - '*.tiff'
+    accepts_directories: true
+
+  - command: brainglobe-napari-io.brainreg_read_dir_sample_space
+    filename_patterns:
+    - '*.tiff'
     accepts_directories: true
 
   - command: brainglobe-napari-io.brainmapper_read_dir
