@@ -5,7 +5,9 @@ from typing import Callable, List, Optional, Union
 
 import tifffile
 from brainglobe_atlasapi.bg_atlas import BrainGlobeAtlas
+from napari import current_viewer
 from napari.types import LayerDataTuple
+from PyQt5.QtWidgets import QFileDialog
 
 from brainglobe_napari_io.utils import (
     is_brainreg_dir,
@@ -85,3 +87,27 @@ def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
     layers = load_atlas(atlas, layers)
 
     return layers
+
+
+def select_dialog():
+    """Open a brainreg folder selection dialog and open it in napari
+    using the corresponding brainreg reader.
+
+    This function is called via the IO Utilities submenu in Napari.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+    """
+    brainreg_folder = QFileDialog.getExistingDirectory(
+        caption="Select brainreg folder (sample space, atlas resolution)"
+    )
+    if brainreg_folder:
+        current_viewer().open(
+            brainreg_folder,
+            plugin="brainglobe-napari-io.brainreg_read_dir_atlas_space",
+        )
