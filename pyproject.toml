@@ -48,6 +48,7 @@ dev = [
     "pre-commit",
     "ruff",
     "setuptools_scm",
+    "pyqt5"
 ]
 
 
