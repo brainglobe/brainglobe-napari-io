@@ -111,6 +111,13 @@ extras =
     dev
 commands =
     pytest -v --color=yes --cov=brainglobe_napari_io --cov-report=xml
+passenv =
+    CI
+    GITHUB_ACTIONS
+    DISPLAY
+    XAUTHORITY
+    NUMPY_EXPERIMENTAL_ARRAY_FUNCTION
+    PYVISTA_OFF_SCREEN
 deps =
     napari-dev: git+https://github.com/napari/napari
 """
