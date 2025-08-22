@@ -7,7 +7,7 @@ import tifffile
 from brainglobe_atlasapi.bg_atlas import BrainGlobeAtlas
 from napari import current_viewer
 from napari.types import LayerDataTuple
-from PyQt5.QtWidgets import QFileDialog
+from qtpy.QtWidgets import QFileDialog
 
 from brainglobe_napari_io.utils import (
     is_brainreg_dir,

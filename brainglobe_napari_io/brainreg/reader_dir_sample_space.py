@@ -6,7 +6,7 @@ from typing import Callable, List, Optional, Union
 from brainglobe_atlasapi.bg_atlas import BrainGlobeAtlas
 from napari import current_viewer
 from napari.types import LayerDataTuple
-from PyQt5.QtWidgets import QFileDialog
+from qtpy.QtWidgets import QFileDialog
 
 from brainglobe_napari_io.brainreg.reader_dir import (
     reader_function as brainreg_reader,
