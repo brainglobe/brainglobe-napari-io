@@ -44,3 +44,34 @@ def test_load_brainreg_dir():
         assert layer[2] == layer_types[idx]
         assert layer[0].shape == DOWNSAMPLED_IMAGE_SIZE
         assert layer[1]["scale"] == LAYER_SCALE
+
+
+def test_menu_calls_expected_reader(make_napari_viewer_proxy, mocker):
+    make_napari_viewer_proxy()
+    mocker.patch(
+        "brainglobe_napari_io.brainreg.reader_dir_sample_space.QFileDialog.getExistingDirectory",
+        return_value=brainreg_dir,
+    )
+    mock_reader_hook = mocker.patch(
+        "brainglobe_napari_io.brainreg.reader_dir_sample_space.brainreg_read_dir_sample_space",
+        autospec=True,
+    )
+
+    reader_dir_sample_space.select_dialog()
+
+    mock_reader_hook.assert_called_once_with(path=str(brainreg_dir))
+
+
+def test_menu_exits_gracefully(make_napari_viewer_proxy, mocker):
+    make_napari_viewer_proxy()
+    mocker.patch(
+        "brainglobe_napari_io.brainreg.reader_dir_sample_space.QFileDialog.getExistingDirectory",
+        return_value="",
+    )
+    mock_reader_hook = mocker.patch(
+        "brainglobe_napari_io.brainreg.reader_dir_sample_space.brainreg_read_dir_sample_space"
+    )
+
+    reader_dir_sample_space.select_dialog()
+
+    mock_reader_hook.assert_not_called()
