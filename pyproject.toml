@@ -41,6 +41,8 @@ Twitter = "https://twitter.com/brain_globe"
 dev = [
     "pytest",
     "pytest-cov",
+    "pytest-mock",
+    "pytest-qt",
     "coverage",
     "tox",
     "black",
