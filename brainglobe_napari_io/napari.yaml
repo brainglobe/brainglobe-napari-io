@@ -3,16 +3,28 @@ schema_version: 0.1.0
 contributions:
   commands:
   - id: brainglobe-napari-io.brainreg_read_dir
-    title: Brainreg Read Directory
+    title: Sample Space, Atlas Resolution
     python_name: brainglobe_napari_io.brainreg.reader_dir:brainreg_read_dir
 
   - id: brainglobe-napari-io.brainreg_read_dir_atlas_space
-    title: Brainreg Read Directory Atlas Space
+    title: Atlas Space, Atlas Resolution
     python_name: brainglobe_napari_io.brainreg.reader_dir_atlas_space:brainreg_read_dir_atlas_space
 
   - id: brainglobe-napari-io.brainreg_read_dir_sample_space
-    title: Brainreg Read Directory
+    title: Sample Space, Sample Resolution
     python_name: brainglobe_napari_io.brainreg.reader_dir_sample_space:brainreg_read_dir_sample_space
+
+  - id: brainglobe-napari-io.brainreg_select_dir
+    title: Sample Space, Atlas Resolution
+    python_name: brainglobe_napari_io.brainreg.reader_dir:select_dialog
+
+  - id: brainglobe-napari-io.brainreg_select_dir_atlas_space
+    title: Atlas Space, Atlas Resolution
+    python_name: brainglobe_napari_io.brainreg.reader_dir_atlas_space:select_dialog
+
+  - id: brainglobe-napari-io.brainreg_select_read_dir_sample_space
+    title: Sample Space, Sample Resolution
+    python_name: brainglobe_napari_io.brainreg.reader_dir_sample_space:select_dialog
 
   - id: brainglobe-napari-io.brainmapper_read_dir
     title: Brainmapper Read Directory
@@ -61,3 +73,15 @@ contributions:
     filename_extensions:
       - .xml
     display_name: multiple_points
+
+  menus:
+    napari/file/io_utilities:
+      - submenu: load_brainreg
+    load_brainreg:
+      - command: brainglobe-napari-io.brainreg_select_dir
+      - command: brainglobe-napari-io.brainreg_select_dir_atlas_space
+      - command: brainglobe-napari-io.brainreg_select_read_dir_sample_space
+
+  submenus:
+    - id: load_brainreg
+      label: Load BrainGlobe Registration Results
