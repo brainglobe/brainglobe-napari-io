@@ -8,7 +8,7 @@ from napari.utils.notifications import show_info
 from .utils import convert_layer_to_cells
 
 
-def write_multiple_points_to_xml(
+def write_multiple_points(
     path: str, layer_data: List[FullLayerData]
 ) -> List[str]:
     cells_to_save = []
@@ -21,11 +21,23 @@ def write_multiple_points_to_xml(
                 f'Did not find point type in metadata for "{name}" layer, '
                 "Defaulting to 'Unknown'"
             )
-            cells_to_save.extend(convert_layer_to_cells(data, cells=False))
+            cells_to_save.extend(
+                convert_layer_to_cells(
+                    data, cells=False, features=attributes.get("features")
+                )
+            )
         elif attributes["metadata"]["point_type"] == Cell.CELL:
-            cells_to_save.extend(convert_layer_to_cells(data))
+            cells_to_save.extend(
+                convert_layer_to_cells(
+                    data, features=attributes.get("features")
+                )
+            )
         elif attributes["metadata"]["point_type"] == Cell.UNKNOWN:
-            cells_to_save.extend(convert_layer_to_cells(data, cells=False))
+            cells_to_save.extend(
+                convert_layer_to_cells(
+                    data, cells=False, features=attributes.get("features")
+                )
+            )
 
     if cells_to_save:
         save_cells(cells_to_save, path)
