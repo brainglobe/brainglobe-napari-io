@@ -53,9 +53,9 @@ This is typically only used in other software, but you can enable it yourself:
 
 
 ### cellfinder
-#### Load cellfinder XML file
+#### Load cellfinder XML/YAML file
 * Load your raw data (drag and drop the data directories into napari, one at a time)
-* Drag and drop your cellfinder XML file (e.g. `cell_classification.xml`) into napari.
+* Drag and drop your cellfinder XML/YAML file (e.g. `cell_classification.xml`) into napari.
 
 #### Load cellfinder directory
 * Load your raw data (drag and drop the data directories into napari, one at a time)
