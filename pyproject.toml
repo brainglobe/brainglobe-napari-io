@@ -22,7 +22,7 @@ classifiers = [
 dependencies = [
     "brainglobe-atlasapi >=2.0.1",
     "brainglobe-space >=1.0.0",
-    "brainglobe-utils >=0.4.2",
+    "brainglobe-utils >=0.9.0",
     "napari>=0.6.1",
     "tifffile>=2020.8.13",
     "numpy",
