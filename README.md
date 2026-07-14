@@ -12,7 +12,7 @@
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-green?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-green.svg)](https://brainglobe.info/community/developers/index.html)
 
-# napari-brainglobe-io
+# brainglobe-napari-io
 
 Visualise cellfinder and brainreg results with napari
 
