@@ -1,22 +1,22 @@
-# napari-brainglobe-io
+[![Docs](https://img.shields.io/badge/Docs-brainglobe--napari--io-blue)](https://brainglobe.info/documentation/index.html)
+[![Get in Touch](https://img.shields.io/badge/Get%20in%20Touch-BrainGlobe-blue)](https://brainglobe.info/contact.html)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Tests](https://github.com/brainglobe/brainglobe-napari-io/actions/workflows/test_and_deploy.yml/badge.svg)](https://github.com/brainglobe/brainglobe-napari-io/actions/workflows/test_and_deploy.yml)
+[![Codecov](https://codecov.io/gh/brainglobe/brainglobe-napari-io/graph/badge.svg)](https://codecov.io/gh/brainglobe/brainglobe-napari-io)
+[![Python Version](https://img.shields.io/pypi/pyversions/brainglobe-napari-io.svg)](https://pypi.org/project/brainglobe-napari-io)
+[![PyPI](https://img.shields.io/pypi/v/brainglobe-napari-io.svg)](https://pypi.org/project/brainglobe-napari-io)
+[![Conda](https://anaconda.org/conda-forge/brainglobe-napari-io/badges/version.svg)](https://anaconda.org/conda-forge/brainglobe-napari-io)
+[![Napari Hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/brainglobe-napari-io)](https://www.napari-hub.org/plugins/brainglobe-napari-io)
+[![Downloads](https://static.pepy.tech/badge/brainglobe-napari-io)](https://pepy.tech/project/brainglobe-napari-io)
+[![Code Style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json)](https://github.com/astral-sh/ruff)
+[![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-green?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-green.svg)](https://brainglobe.info/community/developers/index.html)
 
-[![License](https://img.shields.io/pypi/l/brainglobe-napari-io.svg?color=green)](https://github.com/brainglobe/brainglobe-napari-io/blob/main/LICENSE)
-[![Python Version](https://img.shields.io/pypi/pyversions/brainglobe-napari-io.svg?color=green)](https://python.org)
-[![PyPI](https://img.shields.io/pypi/v/brainglobe-napari-io.svg?color=green)](https://pypi.org/project/brainglobe-napari-io)
-[![Anaconda version](https://anaconda.org/conda-forge/brainglobe-napari-io/badges/version.svg)](https://anaconda.org/conda-forge/brainglobe-napari-io)
-[![Napari hub](https://img.shields.io/endpoint?url=https://npe2api-git-add-shields-napari.vercel.app/api/shields/brainglobe-napari-io)](https://napari-hub.org/plugins/brainglobe-napari-io.html)
-[![PyPI Downloads](https://pepy.tech/badge/brainglobe-napari-io)](https://pepy.tech/project/brainglobe-napari-io)
-[![tests](https://github.com/brainglobe/brainglobe-napari-io/workflows/tests/badge.svg)](https://github.com/brainglobe/brainglobe-napari-io/actions)
-[![codecov](https://codecov.io/gh/brainglobe/brainglobe-napari-io/branch/main/graph/badge.svg)](https://codecov.io/gh/brainglobe/brainglobe-napari-io)
-[![image.sc forum](https://img.shields.io/badge/dynamic/json.svg?label=forum&url=https%3A%2F%2Fforum.image.sc%2Ftags%2Fbrainglobe.json&query=%24.topic_list.tags.0.topic_count&colorB=brightgreen&suffix=%20topics&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAABPklEQVR42m3SyyqFURTA8Y2BER0TDyExZ+aSPIKUlPIITFzKeQWXwhBlQrmFgUzMMFLKZeguBu5y+//17dP3nc5vuPdee6299gohUYYaDGOyyACq4JmQVoFujOMR77hNfOAGM+hBOQqB9TjHD36xhAa04RCuuXeKOvwHVWIKL9jCK2bRiV284QgL8MwEjAneeo9VNOEaBhzALGtoRy02cIcWhE34jj5YxgW+E5Z4iTPkMYpPLCNY3hdOYEfNbKYdmNngZ1jyEzw7h7AIb3fRTQ95OAZ6yQpGYHMMtOTgouktYwxuXsHgWLLl+4x++Kx1FJrjLTagA77bTPvYgw1rRqY56e+w7GNYsqX6JfPwi7aR+Y5SA+BXtKIRfkfJAYgj14tpOF6+I46c4/cAM3UhM3JxyKsxiOIhH0IO6SH/A1Kb1WBeUjbkAAAAAElFTkSuQmCC)](https://forum.image.sc/tag/brainglobe)
-[![Bluesky](https://img.shields.io/badge/Bluesky-0285FF?logo=bluesky&logoColor=fff)](https://bsky.app/profile/brainglobe.info)
-[![Mastodon](https://img.shields.io/badge/Mastodon-6364FF?logo=mastodon&logoColor=fff)](https://mastodon.online/@brainglobe)
+# brainglobe-napari-io
 
 Visualise cellfinder and brainreg results with napari
 
-
 ----------------------------------
-
 
 ## Installation
 This package is likely already installed
@@ -46,7 +46,6 @@ _N.B. If you use a high resolution atlas (such as `allen_mouse_10um`), then the 
 
 ![sample_space](https://raw.githubusercontent.com/brainglobe/brainglobe-napari-io/master/resources/sample_space.gif)
 
-
 #### Atlas space
 `napari-brainreg` also comes with an additional plugin, for visualising your data
 in atlas space.
@@ -56,7 +55,6 @@ This is typically only used in other software, but you can enable it yourself:
 * Navigate to `Plugins` -> `Plugin Call Order`
 * In the `Plugin Sorter` window, select `napari_get_reader` from the `select hook...` dropdown box
 * Drag `brainreg_read_dir_atlas_space` (the atlas space viewer plugin) above `brainreg_read_dir` (the normal plugin) to ensure that the atlas space plugin is used preferentially.
-
 
 ### cellfinder
 #### Load cellfinder XML/YAML file
