@@ -43,7 +43,6 @@ dev = [
     "pytest-mock",
     "pytest-qt",
     "coverage",
-    "tox",
     "black",
     "mypy",
     "pre-commit",
@@ -52,10 +51,8 @@ dev = [
     "napari[all]"
 ]
 
-
 [project.entry-points."napari.manifest"]
 brainglobe-napari-io = "brainglobe_napari_io:napari.yaml"
-
 
 [build-system]
 requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
@@ -69,7 +66,7 @@ include = ["brainglobe_napari_io*"]
 exclude = ["tests*"]
 
 [tool.pytest.ini_options]
-addopts = "--cov=brainglobe_napari_io"
+addopts = "--cov=brainglobe_napari_io --cov-report=xml --color=yes -vv"
 
 [tool.black]
 target-version = ['py311','py312', 'py313']
@@ -92,31 +89,3 @@ line-length = 79
 exclude = ["__init__.py", "build", ".eggs"]
 select = ["I", "E", "F"]
 fix = true
-
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-envlist = py{311,312,313}, napari-dev
-isolated_build = True
-
-[gh-actions]
-python =
-    3.11: py311
-    3.12: py312
-    3.13: py313
-
-[testenv]
-extras =
-    dev
-commands =
-    pytest -v --color=yes --cov=brainglobe_napari_io --cov-report=xml
-passenv =
-    CI
-    GITHUB_ACTIONS
-    DISPLAY
-    XAUTHORITY
-    NUMPY_EXPERIMENTAL_ARRAY_FUNCTION
-    PYVISTA_OFF_SCREEN
-deps =
-    napari-dev: git+https://github.com/napari/napari
-"""
