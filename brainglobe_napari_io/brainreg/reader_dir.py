@@ -45,6 +45,8 @@ def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
     is (data, [add_kwargs, [layer_type]]), "add_kwargs" and "layer_type" are
     both optional.
 
+    The hemispheres layer is omitted if registered_hemispheres.tiff is absent.
+
     Parameters
     ----------
     path : str or list of str
@@ -81,17 +83,19 @@ def reader_function(path: os.PathLike) -> List[LayerDataTuple]:
             "image",
         )
     )
-    layers.append(
-        (
-            tifffile.imread(path / "registered_hemispheres.tiff"),
-            {
-                "name": "Hemispheres",
-                "visible": False,
-                "opacity": 0.3,
-            },
-            "labels",
+    hemispheres_path = path / "registered_hemispheres.tiff"
+    if hemispheres_path.exists():
+        layers.append(
+            (
+                tifffile.imread(hemispheres_path),
+                {
+                    "name": "Hemispheres",
+                    "visible": False,
+                    "opacity": 0.3,
+                },
+                "labels",
+            )
         )
-    )
 
     layers.append(
         (

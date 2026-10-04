@@ -1,4 +1,7 @@
 import pathlib
+import shutil
+
+import pytest
 
 from brainglobe_napari_io.brainreg import reader_dir_sample_space
 
@@ -32,13 +35,21 @@ def test_brainreg_read_dir_sample_space():
     )
 
 
-def test_load_brainreg_dir():
-    layers = reader_dir_sample_space.reader_function(brainreg_dir)
-    assert len(layers) == 3
+@pytest.mark.parametrize("with_hemispheres", [True, False])
+def test_load_brainreg_dir(tmp_path, with_hemispheres):
+    directory = tmp_path / "registration"
+    shutil.copytree(brainreg_dir, directory)
+    if not with_hemispheres:
+        (directory / "registered_hemispheres.tiff").unlink()
+    layers = reader_dir_sample_space.reader_function(directory)
 
     layer_names = ["Hemispheres", "allen_mouse_100um", "Boundaries"]
 
     layer_types = ["labels", "labels", "image"]
+    if not with_hemispheres:
+        layer_names.pop(0)
+        layer_types.pop(0)
+    assert len(layers) == len(layer_names)
     for idx, layer in enumerate(layers):
         assert layer[1]["name"] == layer_names[idx]
         assert layer[2] == layer_types[idx]
